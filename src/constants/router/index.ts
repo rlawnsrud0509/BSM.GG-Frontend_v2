@@ -1,4 +1,4 @@
-import { routeNameProperties, routeProperties } from "@/types/constants/routeProperties.type";
+import { routeProperties } from "@/types/constants/routeProperties.type";
 
 export const ROUTE: routeProperties = {
   HOME: "/",
@@ -8,7 +8,7 @@ export const ROUTE: routeProperties = {
   REGISTER_ACCOUNT: process.env.AUTH_URL as string,
 };
 
-export const ROUTENAME: routeNameProperties = {
+export const ROUTENAME: routeProperties = {
   RANKING: "교내랭킹",
   LOLNERD: "이주의 롤창",
 };
