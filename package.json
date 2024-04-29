@@ -11,15 +11,19 @@
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.14.2",
+    "@vanilla-extract/sprinkles": "^1.6.1",
+    "file-loader": "^6.2.0",
     "husky": "^9.0.11",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vanilla-extract/next-plugin": "^2.4.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "typescript": "^5"
