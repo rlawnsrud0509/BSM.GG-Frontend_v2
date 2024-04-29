@@ -1,9 +1,10 @@
 ---
-name: BIS Default Issue Template
-about: BIS 기본 이슈 템플릿입니다
+name: BSM.GG 기본 이슈 템플릿
+about: 기본이슈템플릿이라고
 title: "[Development] (개발할 기능)"
-labels: enhancement
-assignees: ""
+labels: ''
+assignees: ''
+
 ---
 
 ## 📕 요구사항
