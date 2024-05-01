@@ -12,10 +12,13 @@ globalStyle("body", {
   height: "100vh",
 
   position: "relative",
+
+  overflowX: "hidden",
 });
 
 globalStyle("button, input", {
   outline: "none",
+  border: "none",
 });
 
 globalStyle("a", {
