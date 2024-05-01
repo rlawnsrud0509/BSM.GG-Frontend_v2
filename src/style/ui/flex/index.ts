@@ -1,6 +1,6 @@
-import { CSSProperties, ComplexStyleRule } from "@vanilla-extract/css";
+import { CSSProperties, ComplexStyleRule, style } from "@vanilla-extract/css";
 
-export const styledRow = ({
+export const Row = ({
   justifyContent = "center",
   alignItems = "center",
   gap = 0,
@@ -15,7 +15,7 @@ export const styledRow = ({
   } as ComplexStyleRule;
 };
 
-export const styledColumn = ({
+export const Column = ({
   justifyContent = "center",
   alignItems = "center",
   gap = 0,
