@@ -1,10 +1,11 @@
 import { font } from "@/style/base/font";
-import { theme } from "@/style/base/theme/index.css";
-import { styledRow } from "@/style/ui/flex";
+import { theme } from "@/style/theme/index.css";
+import { Button } from "@/style/ui/Button";
+import { Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
 
 export const Container = style(
-  styledRow({
+  Row({
     width: "100%",
 
     position: "fixed",
@@ -12,55 +13,22 @@ export const Container = style(
     left: 0,
 
     backgroundColor: theme.base.white,
-    boxShadow: `0.4rem 0 3rem ${theme.gray[300]}`,
+    boxShadow: `0.4rem 0 1rem ${theme.gray[200]}`,
 
     padding: "1.2rem 2.4rem",
     justifyContent: "space-between",
     boxSizing: "border-box",
+
+    zIndex: "9999",
   }),
 );
 
 export const HeaderLinkSection = style(
-  styledRow({
+  Row({
     gap: "10rem",
   }),
 );
 
-export const LinkBox = style(styledRow({ gap: "5rem" }));
+export const LinkBox = style(Row({ gap: "5rem" }));
 
-export const Link = style({
-  ...font.lg,
-
-  color: theme.gray[500],
-  padding: "1.6rem 1.6rem",
-  borderRadius: "0.5rem",
-
-  cursor: "pointer",
-  transition: "ease-out 0.1s",
-
-  ":hover": {
-    backgroundColor: theme.gray[50],
-  },
-
-  ":active": {
-    backgroundColor: theme.gray[100],
-    color: theme.gray[800],
-  },
-});
-
-export const RegistAccountButton = style({
-  ...font.lg,
-
-  color: theme.base.white,
-  backgroundColor: theme.primary[500],
-
-  borderRadius: "0.5rem",
-  padding: "1.4rem",
-
-  cursor: "pointer",
-  transition: "ease-out 0.1s",
-
-  ":hover": {
-    backgroundColor: theme.primary[400],
-  },
-});
+export const RegistAccountButton = style(Button({}));

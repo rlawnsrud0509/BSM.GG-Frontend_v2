@@ -2,6 +2,7 @@ import * as S from "./index.css";
 import { Logo } from "@/style/base/svg";
 import { ROUTE, ROUTENAME } from "@/constants/router";
 import Link from "next/link";
+import HeaderLink from "./headerLink";
 
 const Header = () => {
   return (
@@ -12,9 +13,7 @@ const Header = () => {
         </Link>
         <div className={S.LinkBox}>
           {Object.keys(ROUTENAME).map((e) => (
-            <Link key={e} href={ROUTE[e]} className={S.Link}>
-              {ROUTENAME[e]}
-            </Link>
+            <HeaderLink key={ROUTE[e]} routeName={e} />
           ))}
         </div>
       </section>
