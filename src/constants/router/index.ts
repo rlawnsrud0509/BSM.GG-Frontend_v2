@@ -3,7 +3,7 @@ import { routeProperties } from "@/types/constants/routeProperties.type";
 export const ROUTE: routeProperties = {
   HOME: "/",
   RANKING: "/ranking",
-  LOLNERD: "lolchang",
+  LOLNERD: "/lolchang",
 
   REGISTER_ACCOUNT: process.env.AUTH_URL as string,
 };

@@ -4,11 +4,12 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   webpack(config) {
     config.module.rules.push({
       test: /\.(woff2)$/i,
       use: {
-        loader: "url-loader",
+        loader: "file-loader",
       },
     });
     return config;
