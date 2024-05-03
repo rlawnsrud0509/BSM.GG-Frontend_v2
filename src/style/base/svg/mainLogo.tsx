@@ -1,6 +1,6 @@
 import { svgProperties } from "@/types/svg/svgProperties.type";
 
-const mainLogo = ({ width = 49, height = 15, deg = 0 }: svgProperties) => {
+const mainLogo = ({ width = 40, height = 12, deg = 0 }: svgProperties) => {
   return (
     <svg
       width={`${width}rem`}

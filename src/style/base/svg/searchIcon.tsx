@@ -1,7 +1,7 @@
 import { svgProperties } from "@/types/svg/svgProperties.type";
 import React from "react";
 
-const SearchIcon = ({ width = 3, height = 3, deg = 0 }: svgProperties) => {
+const SearchIcon = ({ width = 2.4, height = 2.4, deg = 0 }: svgProperties) => {
   return (
     <svg
       width={`${width}rem`}
