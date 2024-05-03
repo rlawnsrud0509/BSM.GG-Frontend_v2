@@ -1,5 +1,5 @@
 import { font } from "@/style/base/font";
-import { theme } from "@/style/theme/index.css";
+import { theme } from "@/style/base/theme/index.css";
 import { createVar, style } from "@vanilla-extract/css";
 
 export const LinkColor = createVar();
@@ -15,6 +15,10 @@ export const Link = style({
 
   cursor: "pointer",
   transition: "ease-out 0.1s",
+
+  ":hover": {
+    color: theme.gray[800],
+  },
 
   ":active": {
     backgroundColor: theme.gray[100],
