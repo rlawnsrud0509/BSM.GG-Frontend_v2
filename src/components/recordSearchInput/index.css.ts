@@ -1,18 +1,18 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
-import { styledRow } from "@/style/ui/flex";
+import { Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
 
-export const Container = style(styledRow({}));
+export const Container = style(Row({}));
 
 export const InputSection = style({
   position: "relative",
 });
 
 export const SearchInput = style({
-  width: "100rem",
+  width: "80rem",
 
-  padding: "2.8rem",
+  padding: "2.4rem",
   border: `0.3rem solid ${theme.primary[300]}`,
   borderRadius: "999rem",
 
@@ -27,7 +27,7 @@ export const SearchInput = style({
     color: theme.gray[400],
   },
 
-  ...font.xl,
+  ...font.lg,
 });
 
 export const SearchIconBox = style({
@@ -43,6 +43,6 @@ export const SearchIconBox = style({
   transition: "ease-out 0.2s",
 
   ":hover": {
-    transform: "scale(1.2) translateY(-40%)",
+    transform: "scale(1.1) translateY(-45%)",
   },
 });
