@@ -21,7 +21,7 @@ export const Container = style(
 );
 
 export const RankTypeText = style({
-  ...font["md"],
+  ...font["rg"],
   color: theme.gray[800],
 });
 

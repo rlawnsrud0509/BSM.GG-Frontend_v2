@@ -22,7 +22,7 @@ export const Container = style(
 );
 
 export const PlayedListText = style({
-  ...font["md"],
+  ...font["rg"],
   color: theme.gray[800],
 });
 
