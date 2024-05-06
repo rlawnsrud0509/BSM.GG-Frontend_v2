@@ -10,7 +10,7 @@ const ChampionInfoImg = ({ championName, level, containerSize }: ChampionInfoImg
         [S.containerSize]: `${containerSize}rem`,
       })}
     >
-      <img src={championName} alt="ff" />
+      <img src={championName} alt="ChampionImg" />
       <div
         className={S.ChampionLevel}
         style={assignInlineVars({

@@ -20,7 +20,7 @@ const UserChampionDetailInfoSection = () => {
       </section>
       <span className={S.DamageText}>딜량 52390</span>
       <section className={S.WardInfoSection}>
-        <div className={S.WardImg} />
+        <img alt="WardImg" className={S.WardImg} />
         12 / 3
       </section>
       <ItemListBox ItemList={["1", "2", "3", "4", "4", "5", "6"]} />

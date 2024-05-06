@@ -5,7 +5,7 @@ const ItemListBox = ({ ItemList }: ItemListBoxProperties) => {
   return (
     <div className={S.Container}>
       {ItemList.map((e, i) => (
-        <img key={`ItemList${i}`} src={e} alt="ee" className={S.ItemImg}></img>
+        <img key={`ItemList${i}`} src={e} alt="ItemImg" className={S.ItemImg}></img>
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
 import ProfileContainer from "@/components/profileContainer";
 import * as S from "./page.css";
-import RankInfoContainer from "@/components/RankInfoContainer";
+import RankInfoContainer from "@/components/rankInfoContainer";
 import PlayedChampionListContainer from "@/components/playedChampionListContainer";
 import GameRecordContainer from "@/components/gameRecordContainer";
 
