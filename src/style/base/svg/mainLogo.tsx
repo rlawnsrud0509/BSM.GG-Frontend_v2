@@ -5,7 +5,7 @@ const mainLogo = ({ width = 40, height = 12, deg = 0 }: svgProperties) => {
     <svg
       width={`${width}rem`}
       height={`${height}rem`}
-      rotate={`${deg}deg`}
+      transform={`rotate(${deg})`}
       viewBox="0 0 491 102"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
