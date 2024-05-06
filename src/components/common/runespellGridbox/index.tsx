@@ -9,7 +9,7 @@ const RunespellGridBox = ({ runeSpellList, containerSize }: RunespellGridboxProp
         <img
           key={`RuneSpell${i}`}
           src={e}
-          alt="ee"
+          alt="Rune & Spell Img"
           className={S.SummonerSpellImg}
           style={assignInlineVars({
             [S.containerSize]: `${containerSize}rem`,
