@@ -1,5 +1,5 @@
 import { font } from "@/style/base/font";
-import { theme } from "@/style/theme/index.css";
+import { theme } from "@/style/base/theme/index.css";
 import { Button } from "@/style/ui/Button";
 import { Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";

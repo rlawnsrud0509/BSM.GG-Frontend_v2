@@ -1,10 +1,13 @@
-import { styledColumn } from "@/style/ui/flex";
+import { Column } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
 
 export const Conatiner = style(
-  styledColumn({
+  Column({
     width: "100%",
     height: "100%",
+
+    justifyContent: "flex-start",
     gap: "5rem",
+    paddingTop: "24rem",
   }),
 );

@@ -6,7 +6,7 @@ const RecordSearchInput = () => {
   return (
     <div className={S.Container}>
       <section className={S.InputSection}>
-        <input className={S.SearchInput} placeholder="소환사 이름을 입력해보세요!" />
+        <input className={S.SearchInput} placeholder=" '소환사명 + #태그' 로 검색하세요!" />
         <div className={S.SearchIconBox}>
           <SearchIcon />
         </div>

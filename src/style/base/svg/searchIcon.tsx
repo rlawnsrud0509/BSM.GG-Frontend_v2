@@ -1,12 +1,12 @@
 import { svgProperties } from "@/types/svg/svgProperties.type";
 import React from "react";
 
-const SearchIcon = ({ width = 3, height = 3, deg = 0 }: svgProperties) => {
+const SearchIcon = ({ width = 2.4, height = 2.4, deg = 0 }: svgProperties) => {
   return (
     <svg
       width={`${width}rem`}
       height={`${height}rem`}
-      rotate={`${deg}deg`}
+      transform={`rotate(${deg})`}
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

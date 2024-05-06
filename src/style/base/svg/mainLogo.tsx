@@ -1,11 +1,11 @@
 import { svgProperties } from "@/types/svg/svgProperties.type";
 
-const mainLogo = ({ width = 49, height = 15, deg = 0 }: svgProperties) => {
+const mainLogo = ({ width = 40, height = 12, deg = 0 }: svgProperties) => {
   return (
     <svg
       width={`${width}rem`}
       height={`${height}rem`}
-      rotate={`${deg}deg`}
+      transform={`rotate(${deg})`}
       viewBox="0 0 491 102"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

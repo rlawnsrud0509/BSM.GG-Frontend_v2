@@ -1,7 +1,7 @@
 "use client";
 
 import { ROUTE, ROUTENAME } from "@/constants/router";
-import { theme } from "@/style/theme/index.css";
+import { theme } from "@/style/base/theme/index.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { usePathname } from "next/navigation";
 
