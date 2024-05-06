@@ -5,8 +5,9 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 const RunespellGridBox = ({ runeSpellList, containerSize }: RunespellGridboxProperties) => {
   return (
     <div className={S.Container}>
-      {runeSpellList.map((e) => (
+      {runeSpellList.map((e, i) => (
         <img
+          key={`RuneSpell${i}`}
           src={e}
           alt="ee"
           className={S.SummonerSpellImg}
