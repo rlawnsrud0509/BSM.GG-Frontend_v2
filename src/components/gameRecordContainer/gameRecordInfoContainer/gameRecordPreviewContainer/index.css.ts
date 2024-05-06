@@ -25,7 +25,7 @@ export const Container = style(
 );
 
 export const GameUserInfoContainer = style({
-  width: "60%",
+  width: "80%",
   display: "grid",
   position: "relative",
 
