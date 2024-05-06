@@ -6,9 +6,15 @@ import { createVar, style } from "@vanilla-extract/css";
 export const ContainerFont = createVar();
 export const KDAavgTextColor = createVar();
 
-export const Container = style(
+export const BaseContainer = style(
   Row({
     ...font["md"],
+  }),
+);
+
+export const SmallContainer = style(
+  Row({
+    ...font["sm"],
   }),
 );
 

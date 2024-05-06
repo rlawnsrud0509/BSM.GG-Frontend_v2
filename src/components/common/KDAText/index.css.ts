@@ -3,9 +3,15 @@ import { theme } from "@/style/base/theme/index.css";
 import { Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
 
-export const Container = style(
+export const BaseContainer = style(
   Row({
     ...font["lg"],
+  }),
+);
+
+export const SmallContainer = style(
+  Row({
+    ...font["md"],
   }),
 );
 
