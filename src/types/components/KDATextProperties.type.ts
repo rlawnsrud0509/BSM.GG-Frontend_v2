@@ -4,5 +4,5 @@ export interface KDATextProperties {
   kill: number;
   death: number;
   assist: number;
-  font?: fontProperties;
+  type: string;
 }
