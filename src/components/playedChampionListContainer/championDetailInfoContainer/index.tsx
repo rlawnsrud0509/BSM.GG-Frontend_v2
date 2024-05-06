@@ -6,6 +6,7 @@ import KDAavgText from "@/components/common/KDAavgText";
 const ChampionDetailInfoContainer = () => {
   const dummyData = {
     Name: "트위스티트 페이트",
+    played: 123,
     kill: 3,
     death: 9,
     assist: 44,
@@ -16,9 +17,12 @@ const ChampionDetailInfoContainer = () => {
     <main className={S.Container}>
       <section className={S.ChampionInfoSection}>
         <div className={S.championImg} />
-        <span className={S.championText}>{dummyData.Name}</span>
+        <div className={S.ChampionDetailInfoSection}>
+          <span className={S.championText}>{dummyData.Name}</span>
+          <span className={S.playedGameText}>{dummyData.played}게임</span>
+        </div>
       </section>
-      <KDAavgText {...dummyData} />
+      <KDAavgText type="base" {...dummyData} />
       <span
         className={S.WinRateText}
         style={assignInlineVars({

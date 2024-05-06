@@ -1,6 +1,6 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
-import { Row } from "@/style/ui/Flex";
+import { Column, Row } from "@/style/ui/Flex";
 import { createVar, style } from "@vanilla-extract/css";
 
 export const KDAColor = createVar();
@@ -28,9 +28,21 @@ export const championImg = style({
   borderRadius: "999rem",
 });
 
+export const ChampionDetailInfoSection = style(
+  Column({
+    alignItems: "flex-start",
+    gap: "0.1rem",
+  }),
+);
+
 export const championText = style({
   ...font["md"],
   color: theme.gray[800],
+});
+
+export const playedGameText = style({
+  ...font["sm"],
+  color: theme.gray[500],
 });
 
 export const WinRateText = style({
