@@ -2,6 +2,7 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
 import { theme } from "@/style/base/theme/index.css";
 import KDAavgText from "@/components/common/KDAavgText";
+import { getWinRateColor } from "@/style/utils/getWinrateColor";
 
 const ChampionDetailInfoContainer = () => {
   const dummyData = {
@@ -26,7 +27,7 @@ const ChampionDetailInfoContainer = () => {
       <span
         className={S.WinRateText}
         style={assignInlineVars({
-          [S.WinRateColor]: dummyData.WinRate >= 50 ? theme.primary[400] : theme.secondary[400],
+          [S.WinRateColor]: getWinRateColor(dummyData.WinRate),
         })}
       >
         {dummyData.WinRate}%
