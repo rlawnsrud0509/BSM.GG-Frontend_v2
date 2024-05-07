@@ -4,7 +4,7 @@ const UserinfoSection = () => {
   return (
     <div className={S.Container}>
       <div className={S.UserDetailInfoSection}>
-        <span className={S.UserLevelText}>Lv.65</span>
+        <span className={S.UserLevelText}>3106 김준경</span>
         <span className={S.UserRankingText}>교내 랭킹 34위 (상위 28.6%)</span>
       </div>
       <div className={S.UserNameSection}>
