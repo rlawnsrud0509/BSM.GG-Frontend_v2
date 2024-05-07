@@ -20,12 +20,30 @@ export const Container = style(
   }),
 );
 
+export const ProfileImgSection = style({
+  position: "relative",
+});
+
 export const ProfileImg = style({
   width: "15rem",
   height: "15rem",
 
   borderRadius: "1rem",
   backgroundColor: theme.gray[200],
+});
+
+export const LevelTextBox = style({
+  position: "absolute",
+  bottom: "0%",
+  left: "50%",
+  transform: "translate(-50%, 50%)",
+
+  ...font["md"],
+  padding: "0.5rem",
+  borderRadius: "999rem",
+
+  color: theme.base.white,
+  backgroundColor: theme.gray[800],
 });
 
 export const userProfileSection = style(
@@ -47,6 +65,6 @@ export const UserRecordReloadSection = style(
 export const UserRecordReloadButton = style(Button({}));
 
 export const UserRecordReloadText = style({
-  ...font.sm,
+  ...font["sm"],
   color: theme.gray[400],
 });
