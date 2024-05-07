@@ -35,7 +35,7 @@ export const UserDetailInfoSection = style(
 
 export const UserLevelText = style({
   ...font["rg"],
-  color: theme.gray[400],
+  color: theme.gray[500],
 });
 
 export const UserRankingText = style({
