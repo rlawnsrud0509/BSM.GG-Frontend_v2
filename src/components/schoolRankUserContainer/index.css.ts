@@ -16,9 +16,14 @@ export const Container = style({
   padding: "1rem 0",
   boxSizing: "border-box",
 
-  boxShadow: `0 0 0.5rem ${theme.primary[200]}`,
   borderRadius: "0.5rem",
   backgroundColor: ContainerColor,
+
+  transition: "0.1s ease-out",
+
+  ":hover": {
+    transform: "scale(1.01)",
+  },
 });
 
 export const RankText = style({
@@ -55,7 +60,7 @@ export const PlayernameText = style({
 
 export const UsernameText = style({
   ...font["sm"],
-  color: theme.gray[500],
+  color: theme.gray[700],
 });
 
 export const TierText = style({
