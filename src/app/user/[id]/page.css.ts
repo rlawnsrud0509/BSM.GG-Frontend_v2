@@ -3,11 +3,11 @@ import { style } from "@vanilla-extract/css";
 
 export const Container = style(
   Column({
-    width: "100%",
-    maxWidth: "170rem",
+    width: "80%",
+    maxWidth: "160rem",
     position: "relative",
 
-    padding: "12rem 20rem",
+    padding: "12rem 0",
     gap: "3.2rem",
     justifyContent: "flex-start",
     boxSizing: "border-box",

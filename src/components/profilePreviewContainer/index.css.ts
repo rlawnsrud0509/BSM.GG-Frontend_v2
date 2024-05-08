@@ -1,24 +1,28 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
-import { Button } from "@/style/ui/Button";
 import { Column, Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
 
-export const Container = style(
-  Row({
-    width: "100%",
+export const Container = style({
+  width: "100%",
+  display: "flex",
 
-    position: "relative",
+  position: "relative",
 
-    gap: "4.8rem",
-    justifyContent: "flex-start ",
-    padding: "4.8rem",
+  gap: "4.8rem",
+  justifyContent: "flex-start ",
+  padding: "3.6rem",
 
-    boxSizing: "border-box",
-    borderRadius: "0.5rem",
-    boxShadow: `0 0 0.8rem ${theme.gray[200]}`,
-  }),
-);
+  boxSizing: "border-box",
+  borderRadius: "0.5rem",
+  boxShadow: `0 0 0.8rem ${theme.gray[200]}`,
+
+  transition: "0.1s ease-out",
+
+  ":hover": {
+    transform: "scale(1.01)",
+  },
+});
 
 export const ProfileImgSection = style({
   position: "relative",
@@ -55,16 +59,23 @@ export const userProfileSection = style(
   }),
 );
 
-export const UserRecordReloadSection = style(
+export const UserTierInfoSection = style(
   Row({
     gap: "1rem",
     alignItems: "flex-end",
   }),
 );
 
-export const UserRecordReloadButton = style(Button({}));
+export const UserTierText = style({
+  ...font["xl"],
+  color: theme.gray[800],
+  margin: "auto",
+});
 
-export const UserRecordReloadText = style({
-  ...font["sm"],
-  color: theme.gray[400],
+export const UserTierImg = style({
+  width: "4rem",
+  height: "4rem",
+
+  borderRadius: "999rem",
+  backgroundColor: theme.gray[800],
 });

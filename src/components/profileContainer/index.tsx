@@ -5,7 +5,10 @@ import UserinfoSection from "./userInfoSection";
 const ProfileContainer = () => {
   return (
     <section className={S.Container}>
-      <div className={S.ProfileImg}></div>
+      <section className={S.ProfileImgSection}>
+        <div className={S.ProfileImg} />
+        <span className={S.LevelTextBox}>Lv 557</span>
+      </section>
       <div className={S.userProfileSection}>
         <UserinfoSection />
         <div className={S.UserRecordReloadSection}>
