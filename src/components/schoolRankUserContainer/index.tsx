@@ -1,12 +1,14 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
-import { getRankColor } from "@/style/utils/getRankColor";
-import { getRankIcon } from "@/style/utils/getRankIcon";
-import { getWinRateColor } from "@/style/utils/getWinrateColor";
+import { getRankColor } from "@/utils/getRankColor";
+import { getRankIcon } from "@/utils/getRankIcon";
+import { getWinRateColor } from "@/utils/getWinrateColor";
+import Link from "next/link";
 
 const SchoolRankUserContainer = ({ rank }: { rank: number }) => {
   return (
-    <div
+    <Link
+      href={"/user/123"}
       className={S.Container}
       style={assignInlineVars({
         [S.ContainerColor]: getRankColor(rank),
@@ -34,7 +36,7 @@ const SchoolRankUserContainer = ({ rank }: { rank: number }) => {
       >
         53%
       </span>
-    </div>
+    </Link>
   );
 };
 
