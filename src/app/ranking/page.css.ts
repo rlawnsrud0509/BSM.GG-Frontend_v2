@@ -11,13 +11,13 @@ export const Container = style(
     padding: "16rem 0",
     boxSizing: "border-box",
 
-    overflowY: "scroll",
+    overflowY: "auto",
     gap: "0.6rem",
   }),
 );
 
 export const PageText = style({
   width: "80%",
-  marginBottom: "4rem",
+  marginBottom: "3rem",
   ...font["3xl"],
 });
