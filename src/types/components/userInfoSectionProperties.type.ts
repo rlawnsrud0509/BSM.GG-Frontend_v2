@@ -6,4 +6,5 @@ export interface UserInfoSectionProperties {
   class_no: number;
   student_no: number;
   name: string;
+  user_count: number;
 }

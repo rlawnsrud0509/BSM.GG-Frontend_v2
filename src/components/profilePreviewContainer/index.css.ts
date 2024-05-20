@@ -26,6 +26,8 @@ export const Container = style({
 
 export const ProfileImgSection = style({
   position: "relative",
+  width: "fit-content",
+  height: "fit-content",
 });
 
 export const ProfileImg = style({
