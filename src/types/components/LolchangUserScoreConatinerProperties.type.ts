@@ -1,8 +1,6 @@
-import { CSSProperties } from "@vanilla-extract/css";
-
 export interface LolchangUserScoreContainerProerties {
   resultText: string;
-  mainText: string;
+  mainText: string | number;
   mainUnitText: string;
   containerColor: string;
   containerTextColor: string;

@@ -1,7 +1,26 @@
+"use client";
+
+import { useGetSummonerbaseInfoQuery } from "@/service/summoner/graphql";
 import * as S from "./index.css";
+import UserinfoSection from "./userInfoSection";
+import Link from "next/link";
 
 const ProfilePreviewLayoutContainer = () => {
-  return <div className={S.Container}>로그인하고 롤 계정을 추가해보세요!</div>;
+  return (
+    <section className={S.Container}>
+      <section className={S.ProfileImgSection}>
+        <div className={S.ProfileImg} />
+        <span className={S.LevelTextBox}>ㅤㅤ</span>
+      </section>
+      <div className={S.userProfileSection}>
+        <UserinfoSection />
+        <div className={S.UserTierInfoSection}>
+          <div className={S.UserTierImg} />
+          <span className={S.UserTierText}>ㅤㅤㅤㅤㅤㅤㅤㅤ</span>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ProfilePreviewLayoutContainer;
