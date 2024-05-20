@@ -6,7 +6,7 @@ import { style } from "@vanilla-extract/css";
 
 export const Container = style(
   Row({
-    width: "100%",
+    width: "100vw",
 
     position: "fixed",
     top: 0,
@@ -19,7 +19,7 @@ export const Container = style(
     justifyContent: "space-between",
     boxSizing: "border-box",
 
-    zIndex: "9999",
+    zIndex: "1",
   }),
 );
 
