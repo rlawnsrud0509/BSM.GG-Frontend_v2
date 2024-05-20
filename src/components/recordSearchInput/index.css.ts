@@ -13,13 +13,13 @@ export const SearchInput = style({
   width: "80rem",
 
   padding: "2.4rem",
-  border: `0.3rem solid ${theme.primary[300]}`,
+  boxShadow: `0 0 0 0.3rem ${theme.primary[300]}`,
   borderRadius: "999rem",
 
   transition: "ease-out 0.2s",
 
   ":focus": {
-    border: `0.3rem solid ${theme.primary[500]}`,
+    boxShadow: `0 0 0 0.4rem ${theme.primary[400]}`,
     transform: "scale(1.01)",
   },
 
