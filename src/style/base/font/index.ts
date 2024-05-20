@@ -9,11 +9,11 @@ const fontGenerator = (size: number, lineHeight: number) => {
 };
 
 export const font = {
-  "5xl": fontGenerator(3.6, 3.8),
-  "4xl": fontGenerator(3.2, 3.4),
-  "3xl": fontGenerator(2.8, 3.0),
-  "2xl": fontGenerator(2.4, 2.6),
-  xl: fontGenerator(2, 2.2),
+  "5xl": fontGenerator(3.6, 4),
+  "4xl": fontGenerator(3.2, 3.6),
+  "3xl": fontGenerator(2.8, 3.2),
+  "2xl": fontGenerator(2.4, 2.8),
+  xl: fontGenerator(2, 2.4),
 
   lg: fontGenerator(1.6, 2),
   rg: fontGenerator(1.4, 1.8),
