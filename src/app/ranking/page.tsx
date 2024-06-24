@@ -1,7 +1,6 @@
 import SchoolRankHeaderContainer from "@/components/schoolRankHeaderContainer";
 import * as S from "./page.css";
 import RankInfoSection from "@/components/rankInfoSection";
-import { Suspense } from "react";
 
 const Ranking = () => {
   return (
