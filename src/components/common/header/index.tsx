@@ -3,6 +3,7 @@ import { Logo } from "@/style/base/svg";
 import { ROUTE, ROUTENAME } from "@/constants/router";
 import Link from "next/link";
 import HeaderLink from "./headerLink";
+import { getItem } from "@/utils/localStorage";
 
 const Header = () => {
   return (
@@ -17,9 +18,16 @@ const Header = () => {
           ))}
         </div>
       </section>
-      <Link href={ROUTE.REGISTER_ACCOUNT}>
-        <div className={S.RegistAccountButton}>소환사명 연동하기</div>
-      </Link>
+
+      {!String(getItem("access_token")).length ? (
+        <Link href={ROUTE.REGISTER_ACCOUNT}>
+          <div className={S.RegistAccountButton}>소환사명 연동하기</div>
+        </Link>
+      ) : (
+        <Link href={ROUTE.ADDITIONALINFO}>
+          <div className={S.RegistAccountButton}>연동된 소환사명 변경하기</div>
+        </Link>
+      )}
     </nav>
   );
 };
