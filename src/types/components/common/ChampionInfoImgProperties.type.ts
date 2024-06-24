@@ -1,5 +1,5 @@
 export interface ChampionInfoImgProperties {
-  championName: string;
+  championId: number;
   level: number;
   containerSize: number;
 }
