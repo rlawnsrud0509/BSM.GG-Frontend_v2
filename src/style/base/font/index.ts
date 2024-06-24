@@ -15,6 +15,7 @@ export const font = {
   "2xl": fontGenerator(2.4, 2.8),
   xl: fontGenerator(2, 2.4),
 
+  "2lg": fontGenerator(1.8, 2.2),
   lg: fontGenerator(1.6, 2),
   rg: fontGenerator(1.4, 1.8),
   md: fontGenerator(1.2, 1.4),

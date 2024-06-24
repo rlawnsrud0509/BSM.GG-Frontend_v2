@@ -31,6 +31,7 @@ export const theme = {
     50: "#FFF5F5",
     100: "#FFE5E5",
     200: "#FFD5CC",
+    250: "#FFBEB0",
     300: "#FFAB99",
     400: "#FF8266",
     500: "#FF5833",
