@@ -20,6 +20,7 @@ export const UserRecordDetailContainer = style(
     gap: "2rem",
 
     alignItems: "flex-start",
+    paddingBottom: "10rem",
   }),
 );
 
