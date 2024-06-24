@@ -3,7 +3,7 @@ import { theme } from "@/style/base/theme/index.css";
 export const getRankColor = (rank: number) => {
   switch (true) {
     case rank === 1:
-      return theme.primary[500];
+      return theme.primary[400];
     case rank === 2:
       return theme.primary[300];
     case rank === 3:
