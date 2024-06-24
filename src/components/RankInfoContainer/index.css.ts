@@ -37,11 +37,11 @@ export const RankDetailInfoSection = style(
 );
 
 export const RankIcon = style({
-  width: "7rem",
-  height: "7rem",
+  width: "7.5rem",
+  height: "7.5rem",
 
   borderRadius: "0.5rem",
-  backgroundColor: theme.gray[200],
+  position: "relative",
 });
 
 export const RankTextBox = style(

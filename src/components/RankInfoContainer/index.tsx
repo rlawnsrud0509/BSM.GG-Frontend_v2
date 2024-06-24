@@ -3,10 +3,11 @@
 import { useUserParams } from "@/hooks/useUserParams";
 import * as S from "./index.css";
 import { useGetUserFlexRankInfoQuery, useGetUserSoloRankInfoQuery } from "@/service/record/graphql";
+import Image from "next/image";
 
 const RankInfoContainer = ({ rankTypeText }: { rankTypeText: string }) => {
-  const rankField = rankTypeText === "솔로랭크" ? "solo_tier" : "solo_lp";
-  const lpField = rankTypeText === "솔로랭크" ? "solo_lp" : "flex_lp";
+  const rankField = rankTypeText === "솔로랭크" ? "soloTier" : "flexTier";
+  const lpField = rankTypeText === "솔로랭크" ? "soloLp" : "flexLp";
 
   const userParams = useUserParams();
   const { data } =
@@ -18,12 +19,20 @@ const RankInfoContainer = ({ rankTypeText }: { rankTypeText: string }) => {
     <main className={S.Container}>
       <div className={S.RankTypeText}>{rankTypeText}</div>
       <section className={S.RankDetailInfoSection}>
-        <div className={S.RankIcon} />
+        <div className={S.RankIcon}>
+          {data.getSummoner[rankField] !== "" && (
+            <Image
+              src={`/images/rankImage/${String(data.getSummoner[rankField]).split(" ")[0]}.png`}
+              alt="rankImage"
+              fill
+            />
+          )}
+        </div>
         <div className={S.RankTextBox}>
-          {data.summoner.summoner_types[0][rankField] ? (
+          {data.getSummoner[rankField] ? (
             <>
-              <span className={S.RankText}>{data.summoner.summoner_types[0][rankField]}</span>
-              <span className={S.RankPointText}>{data.summoner.summoner_types[0][lpField]} lp</span>
+              <span className={S.RankText}>{data.getSummoner[rankField]}</span>
+              <span className={S.RankPointText}>{data.getSummoner[lpField]} lp</span>
             </>
           ) : (
             <span className={S.RankText}>Unranked</span>
