@@ -2,8 +2,15 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
 import { theme } from "@/style/base/theme/index.css";
 import UserChampionDetailInfoSection from "@/components/common/userChampionDetailInfoSection";
+import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
+import { useUserParams } from "@/hooks/useUserParams";
 
-const GameRecordDetailContainer = () => {
+const GameRecordDetailContainer = (matchData: GameRecordInfoContainerProperties) => {
+  const userParams = useUserParams();
+  const playerTeam = matchData.participants
+    .map((e) => (e.gameName === userParams[0].split("-")[0] ? e.team : null))
+    .filter((e) => e !== null)[0];
+
   return (
     <main
       className={S.Container}
@@ -14,22 +21,31 @@ const GameRecordDetailContainer = () => {
       <section
         className={S.TeamUserListSection}
         style={assignInlineVars({
-          [S.teamContainerColor]: theme.primary[100],
+          [S.teamContainerColor]: playerTeam === "RED" ? theme.primary[100] : theme.secondary[100],
         })}
       >
-        {[1, 2, 3, 4, 5].map((_, i) => (
-          <UserChampionDetailInfoSection key={`TeamChampionInfo${i}`} />
-        ))}
+        {matchData.participants
+          .map((e, i) => {
+            return e.team === "RED" ? (
+              <UserChampionDetailInfoSection {...e} key={`TeamChampionInfo${i}`} />
+            ) : null;
+          })
+          .filter((e) => e !== null)}
       </section>
       <section
         className={S.EnemyTeamUserListSection}
         style={assignInlineVars({
-          [S.enemyTeamContainerColor]: theme.secondary[100],
+          [S.enemyTeamContainerColor]:
+            playerTeam === "BLUE" ? theme.primary[100] : theme.secondary[100],
         })}
       >
-        {[1, 2, 3, 4, 5].map((_, i) => (
-          <UserChampionDetailInfoSection key={`EnemyTeamChampionInfo${i}`} />
-        ))}
+        {matchData.participants
+          .map((e, i) => {
+            return e.team === "BLUE" ? (
+              <UserChampionDetailInfoSection {...e} key={`EnemyChampionInfo${i}`} />
+            ) : null;
+          })
+          .filter((e) => e !== null)}
       </section>
     </main>
   );
