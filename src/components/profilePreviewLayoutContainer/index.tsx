@@ -1,9 +1,5 @@
-"use client";
-
-import { useGetSummonerbaseInfoQuery } from "@/service/summoner/graphql";
 import * as S from "./index.css";
 import UserinfoSection from "./userInfoSection";
-import Link from "next/link";
 
 const ProfilePreviewLayoutContainer = () => {
   return (

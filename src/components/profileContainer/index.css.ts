@@ -12,7 +12,7 @@ export const Container = style(
 
     gap: "4.8rem",
     justifyContent: "flex-start ",
-    padding: "4.8rem",
+    padding: "3.6rem",
 
     boxSizing: "border-box",
     borderRadius: "0.5rem",
@@ -30,6 +30,9 @@ export const ProfileImg = style({
 
   borderRadius: "1rem",
   backgroundColor: theme.gray[200],
+  position: "relative",
+
+  overflow: "hidden",
 });
 
 export const LevelTextBox = style({

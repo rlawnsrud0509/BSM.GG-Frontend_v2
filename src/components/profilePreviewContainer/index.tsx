@@ -4,31 +4,40 @@ import { useGetSummonerbaseInfoQuery } from "@/service/summoner/graphql";
 import * as S from "./index.css";
 import UserinfoSection from "./userInfoSection";
 import Link from "next/link";
-import { useGetLolchangProfileInfoQuery } from "@/service/lolchang/graphql";
+import Image from "next/image";
 
-interface ProfileContainerProperties {
-  type: "summoner" | "this_week" | "record";
-}
-
-const ProfilePreviewContainer = ({ type = "summoner" }: ProfileContainerProperties) => {
-  const { data } =
-    type === "summoner" ? useGetSummonerbaseInfoQuery() : useGetLolchangProfileInfoQuery();
+const ProfilePreviewContainer = () => {
+  const { data } = useGetSummonerbaseInfoQuery();
 
   return (
     <Link
       className={S.Container}
-      href={`user/${data[type].summoner_types[0].game_name}+${data[type].summoner_types[0].tag_line}`}
+      href={`user/${data.getSummoner.gameName}-${data.getSummoner.tagLine}`}
     >
       <section className={S.ProfileImgSection}>
-        <div className={S.ProfileImg} />
-        <span className={S.LevelTextBox}>Lv {data[type].summoner_types[0].level}</span>
+        <div className={S.ProfileImg}>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}profile/${data.getSummoner.profileIcon}.png`}
+            alt="profileImg"
+            fill
+            sizes="100%"
+            priority
+          />
+        </div>
+        <span className={S.LevelTextBox}>Lv {data.getSummoner.level}</span>
       </section>
       <div className={S.userProfileSection}>
-        <UserinfoSection user_count={data[type].user_count} {...data[type].summoner_types[0]} />
+        <UserinfoSection {...data} />
         <div className={S.UserTierInfoSection}>
-          <div className={S.UserTierImg} />
+          <div className={S.UserTierImg}>
+            <Image
+              src={`/images/rankImage/${data.getSummoner.soloTier.split(" ")[0]}.png`}
+              alt="rankImage"
+              fill
+            />
+          </div>
           <span className={S.UserTierText}>
-            {data[type].solo_tier ? data[type].solo_tier : "Unranked"}
+            {data.getSummoner.soloTier ? data.getSummoner.soloTier : "Unranked"}
           </span>
         </div>
       </div>

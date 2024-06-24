@@ -36,6 +36,9 @@ export const ProfileImg = style({
 
   borderRadius: "1rem",
   backgroundColor: theme.gray[200],
+  position: "relative",
+
+  overflow: "hidden",
 });
 
 export const LevelTextBox = style({
@@ -75,9 +78,9 @@ export const UserTierText = style({
 });
 
 export const UserTierImg = style({
-  width: "4rem",
-  height: "4rem",
+  width: "5rem",
+  height: "5rem",
 
   borderRadius: "999rem",
-  backgroundColor: theme.gray[800],
+  position: "relative",
 });

@@ -1,28 +1,37 @@
 "use client";
 
-import { useUserParams } from "@/hooks/useUserParams";
 import * as S from "./index.css";
 import UserinfoSection from "./userInfoSection";
 import { useGetUserProfileInfoQuery } from "@/service/record/graphql";
+import { useUserParams } from "@/hooks/useUserParams";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const ProfileContainer = () => {
   const userParams = useUserParams();
+  const router = useRouter();
   const { data } = useGetUserProfileInfoQuery(userParams);
 
   return (
     <section className={S.Container}>
       <section className={S.ProfileImgSection}>
-        <div className={S.ProfileImg} />
-        <span className={S.LevelTextBox}>Lv {data.summoner.summoner_types[0].level}</span>
+        <div className={S.ProfileImg}>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}profile/${data.getSummoner.profileIcon}.png`}
+            alt="profileImg"
+            fill
+            sizes="100%"
+            priority
+          />
+        </div>
+        <span className={S.LevelTextBox}>Lv {data.getSummoner.level}</span>
       </section>
       <div className={S.userProfileSection}>
-        <UserinfoSection
-          user_count={data.summoner.user_count}
-          {...data.summoner.summoner_types[0]}
-        />
+        <UserinfoSection {...data} />
         <div className={S.UserRecordReloadSection}>
-          <button className={S.UserRecordReloadButton}>전적 갱신</button>
-          <span className={S.UserRecordReloadText}>3초 후에 다시 시도해주세요.</span>
+          <button className={S.UserRecordReloadButton} onClick={() => router.refresh()}>
+            전적 갱신
+          </button>
         </div>
       </div>
     </section>

@@ -23,13 +23,14 @@ export const UserNameSection = style(
   }),
 );
 
-export const UserNameText = style({ ...font["3xl"], color: theme.gray[800] });
+export const UserNameText = style({ ...font["2xl"], color: theme.gray[800] });
 
 export const UserTagText = style({ ...font["xl"], color: theme.gray[400] });
 
 export const UserDetailInfoSection = style(
   Row({
     gap: "1rem",
+    justifyContent: "flex-start",
   }),
 );
 
