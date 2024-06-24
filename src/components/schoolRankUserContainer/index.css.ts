@@ -36,19 +36,26 @@ export const RankText = style({
 export const PlayerProfileInfoSection = style(
   Row({
     gap: "1rem",
+    padding: "0 2rem",
+    boxSizing: "border-box",
   }),
 );
 
 export const PlayerProfileImg = style({
-  width: "3rem",
-  height: "3rem",
+  display: "flex",
+  width: "3.5rem",
+  height: "3.5rem",
+  flexShrink: 0,
 
   borderRadius: "999rem",
   backgroundColor: theme.gray[800],
+  position: "relative",
+  overflow: "hidden",
 });
 
 export const PlayerNameInfoSection = style(
   Column({
+    width: "100%",
     alignItems: "flex-start",
   }),
 );
@@ -80,7 +87,8 @@ export const ChampionImg = style({
   height: "4rem",
 
   borderRadius: "999rem",
-  backgroundColor: theme.gray[800],
+  position: "relative",
+  overflow: "hidden",
 });
 
 export const WinRateText = style({

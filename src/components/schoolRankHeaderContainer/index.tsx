@@ -1,4 +1,4 @@
-import { SCHOOL_RANK_HEADER } from "@/constants/schollRankHeader";
+import { SCHOOL_RANK_HEADER } from "@/constants/schoolRankHeader";
 import * as S from "./index.css";
 
 const SchoolRankHeaderContainer = () => {
