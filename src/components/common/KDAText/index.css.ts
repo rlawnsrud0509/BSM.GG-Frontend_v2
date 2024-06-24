@@ -5,7 +5,7 @@ import { style } from "@vanilla-extract/css";
 
 export const BaseContainer = style(
   Row({
-    ...font["lg"],
+    ...font["2lg"],
   }),
 );
 
@@ -16,5 +16,5 @@ export const SmallContainer = style(
 );
 
 export const DeathText = style({
-  color: theme.secondary[500],
+  color: theme.secondary[600],
 });

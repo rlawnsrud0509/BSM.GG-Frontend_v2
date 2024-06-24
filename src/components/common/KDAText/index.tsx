@@ -1,4 +1,4 @@
-import { KDATextProperties } from "@/types/components/KDATextProperties.type";
+import { KDATextProperties } from "@/types/components/common/KDATextProperties.type";
 import * as S from "./index.css";
 
 const KDAText = ({ kill, death, assist, type }: KDATextProperties) => {
