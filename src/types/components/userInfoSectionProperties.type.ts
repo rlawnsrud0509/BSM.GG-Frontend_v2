@@ -1,10 +1,17 @@
 export interface UserInfoSectionProperties {
-  game_name: string;
-  tag_line: string;
-  ranking: number;
-  grade: number;
-  class_no: number;
-  student_no: number;
-  name: string;
-  user_count: number;
+  getSummoner: {
+    [key: string]: string | number;
+    gameName: string;
+    tagLine: string;
+    profileIcon: string;
+    level: number;
+    ranking: number;
+    soloPoint: number;
+    soloTier: string;
+    name: string;
+    grade: number;
+    classNo: number;
+    studentNo: number;
+    userCount: number;
+  };
 }
