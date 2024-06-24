@@ -4,6 +4,16 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "bsmgg-api.kro.kr",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
   reactStrictMode: false,
   webpack(config) {
     config.module.rules.push({
