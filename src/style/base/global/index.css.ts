@@ -29,6 +29,15 @@ globalStyle("a", {
   textDecoration: "none",
 });
 
-globalFontFace("Pretendard", {
-  src: `url(${PretendardVariable}) format('woff2')`,
-});
+// globalFontFace("Pretendard", {
+//   src: `url(${PretendardVariable}) format('woff2')`,
+//   fontDisplay: "swap",
+// });
+
+// globalFontFace("Pretendard_fallback", {
+//   src: `local("Arial")`,
+//   sizeAdjust: "normal",
+//   ascentOverride: "88%",
+//   descentOverride: "normal",
+//   lineGapOverride: "normal",
+// });
