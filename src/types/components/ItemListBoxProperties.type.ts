@@ -1,3 +1,10 @@
 export interface ItemListBoxProperties {
-  ItemList: string[];
+  itemList: {
+    id: number;
+    name: string;
+  }[];
+  ward: {
+    id: number;
+    name: string;
+  };
 }
