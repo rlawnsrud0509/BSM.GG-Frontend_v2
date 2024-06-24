@@ -1,4 +1,8 @@
 export interface RunespellGridboxProperties {
-  runeSpellList: string[];
+  runeSpellList: {
+    id: string | number;
+    name: string;
+  }[];
+
   containerSize: number;
 }
