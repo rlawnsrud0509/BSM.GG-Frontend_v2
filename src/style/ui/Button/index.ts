@@ -11,7 +11,7 @@ export const Button = ({ ...restStyle }: CSSProperties) => {
 
     borderRadius: "0.5rem",
     padding: "1.4rem",
-    bordar: "none",
+    border: "none",
 
     cursor: "pointer",
     transition: "ease-out 0.1s",
