@@ -11,7 +11,7 @@ export const Conatiner = style(
     justifyContent: "flex-start",
     alignItems: "flex-start",
 
-    gap: "5rem",
+    gap: "3rem",
     boxSizing: "border-box",
     backgroundColor: theme.base.white,
 

@@ -11,22 +11,30 @@ export const Container = style({
   height: containerSize,
   position: "relative",
 
-  backgroundColor: theme.gray[300],
+  display: "flex",
+  flexShrink: 0,
+
   borderRadius: "999rem",
+  backgroundColor: theme.gray[300],
 });
 
 export const ChampionLevel = style(
   Row({
     ...font["tn"],
-    padding: "0.2rem",
+    padding: "0.2rem 0.3rem",
 
     position: "absolute",
     bottom: positionValue,
     right: positionValue,
 
     borderRadius: "999rem",
+    flexShrink: 0,
 
     backgroundColor: theme.gray[800],
     color: theme.base.white,
   }),
 );
+
+export const ChampionImage = style({
+  borderRadius: "999rem",
+});

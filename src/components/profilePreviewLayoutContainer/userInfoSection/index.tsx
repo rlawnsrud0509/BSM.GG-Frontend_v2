@@ -1,4 +1,3 @@
-import { UserInfoSectionProperties } from "@/types/components/userInfoSectionProperties.type";
 import * as S from "./index.css";
 
 const UserinfoSection = () => {

@@ -1,26 +1,40 @@
+"use client";
+
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
-import { LolchangUserGameInfoContainerProperties } from "@/types/components/LolchangUserGameInfoContainerProperties.type";
+import { useGetLolchangInfoQuery } from "@/service/lolchang/graphql";
+import { OnelineReview } from "@/constants/lolchang";
+import { useEffect, useState } from "react";
 
-const LolchangUserGameInfoContainer = ({
-  winGame,
-  defeatGame,
-}: LolchangUserGameInfoContainerProperties) => {
+const LolchangUserGameInfoContainer = () => {
+  const { data } = useGetLolchangInfoQuery();
+  const [randomIndex, setRandomIndex] = useState(0);
+
+  useEffect(() => {
+    setRandomIndex(Math.floor(Math.random() * OnelineReview.length + 1));
+  }, []);
+
   return (
     <div className={S.Container}>
       <div className={S.WinrateBar}>
         <div
           className={S.WinBar}
           style={assignInlineVars({
-            [S.WinBarWidth]: `${(winGame / (winGame + defeatGame)) * 100}%`,
+            [S.WinBarWidth]: `${
+              (data.getChang.changInfo.winGames /
+                (data.getChang.changInfo.winGames + data.getChang.changInfo.loseGames)) *
+              100
+            }%`,
           })}
         >
-          {winGame}승
+          {data.getChang.changInfo.winGames}승
         </div>
-        <div className={S.DefeatBar}>{defeatGame}패</div>
+        <div className={S.DefeatBar}>{data.getChang.changInfo.loseGames}패</div>
       </div>
       <span className={S.JudgeText}>한줄평</span>
-      <div className={S.OneSentenceJudge}>" 롤 대신 더 생산적인 활동을 하는 것이 어떨까요? "</div>
+      <div className={S.OneSentenceJudge}>
+        {randomIndex ? OnelineReview[randomIndex - 1] : "ㅤ"}
+      </div>
     </div>
   );
 };

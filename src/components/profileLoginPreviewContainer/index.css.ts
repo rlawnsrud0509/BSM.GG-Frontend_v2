@@ -16,3 +16,9 @@ export const Container = style(
     color: theme.gray[500],
   }),
 );
+
+export const LinkText = style({
+  color: theme.primary[400],
+
+  ":hover": { textDecoration: "underline" },
+});

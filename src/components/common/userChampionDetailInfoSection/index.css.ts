@@ -7,7 +7,7 @@ export const Container = style({
   display: "grid",
   width: "100%",
 
-  gridTemplateColumns: "1fr 1fr 1fr 1fr 2fr",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr 1.5fr",
   justifyContent: "center",
   alignItems: "center",
 
@@ -23,11 +23,17 @@ export const UserDetailInfoSection = style(
 
 export const UserDetailInfoBox = style(
   Column({
+    width: "100%",
     alignItems: "flex-start",
   }),
 );
 
 export const UsernameText = style({
+  width: "10rem",
+  textOverflow: "ellipsis",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+
   ...font["md"],
   color: theme.gray[800],
 });
@@ -45,12 +51,13 @@ export const KDAInfoSection = style(
 
 export const DamageText = style({
   ...font["md"],
-  textAlign: "center",
+  textAlign: "left",
   color: theme.secondary[500],
 });
 
 export const WardInfoSection = style(
   Row({
+    justifyContent: "left",
     ...font["md"],
     gap: "0.8rem",
   }),
@@ -61,5 +68,7 @@ export const WardImg = style({
   height: "2rem",
 
   borderRadius: "0.5rem",
-  backgroundColor: theme.gray[200],
+  backgroundColor: theme.gray[900],
+  overflow: "hidden",
+  position: "relative",
 });

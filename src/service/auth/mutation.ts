@@ -10,11 +10,11 @@ export const useGetUserStatusMutation = (auth_code: string, openModal: () => voi
   const { mutate: getUserStatusMutate, ...restMutation } = useMutation({
     mutationFn: () => postAuthCode(auth_code),
     onSuccess: (res) => {
-      setItem("access_token", res.data.data.token);
+      setItem("access_token", res.data.data.accessToken);
 
-      if (res.data.data.game_name) {
-        setItem("game_name", res.data.data.game_name);
-        setItem("tag_line", res.data.data.tag_line);
+      if (res.data.data.gameName) {
+        setItem("game_name", res.data.data.gameName);
+        setItem("tag_line", res.data.data.tagLine);
         router.push("/");
       } else {
         openModal();
@@ -38,8 +38,8 @@ export const useAddUserGameNameMutation = (
   const { mutate: addUserGameNameMutation, ...restMutation } = useMutation({
     mutationFn: () => postGameName(game_name, tag_line),
     onSuccess: (res) => {
-      setItem("game_name", res.data.data.game_name);
-      setItem("tag_line", res.data.data.tag_line);
+      setItem("game_name", res.data.data.gameName);
+      setItem("tag_line", res.data.data.tagLine);
       router.push("/");
     },
     onError: (err: any) => {

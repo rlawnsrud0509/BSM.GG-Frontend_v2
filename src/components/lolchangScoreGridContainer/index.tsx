@@ -1,24 +1,41 @@
+"use client";
+
 import * as S from "./index.css";
+import { useGetLolchangInfoQuery } from "@/service/lolchang/graphql";
 import LolchangUserScoreContainer from "./lolchangUserScoreContainer";
-import { theme } from "@/style/base/theme/index.css";
-import LolchangUserScoreLayoutContainer from "./lolchangUserScoreLayoutContainer";
+import { getRandomNumber } from "@/utils/getRandomNumber";
+import { useEffect, useState } from "react";
+import LolchangScoreGridLayoutContainer from "../lolchangScoreGridLayoutContainer";
 
 const LolchanScoreGridContainer = () => {
+  const { data } = useGetLolchangInfoQuery();
+  const [randNumArray, setRandNumArray] = useState<number[]>([]);
+
+  const changArray = Object.keys(data.getChang.changInfo).filter((e) => e !== "__typename");
+
+  useEffect(() => {
+    setRandNumArray(getRandomNumber(9, Object.keys(data.getChang.changInfo).length - 2));
+  }, []);
+
   return (
-    <div className={S.Container}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((e, i) => {
-        return (
-          <LolchangUserScoreLayoutContainer
-            key={`dummy3${i}`}
-            resultText="ㅤㅤㅤㅤㅤ"
-            mainText="ㅤㅤㅤ"
-            mainUnitText="ㅤ"
-            containerColor={theme.secondary[400]}
-            containerTextColor={theme.base.white}
-          />
-        );
-      })}
-    </div>
+    <>
+      {randNumArray.length ? (
+        <div className={S.Container}>
+          {data.getChang.changInfo &&
+            randNumArray.map((e) => {
+              return (
+                <LolchangUserScoreContainer
+                  mainKey={changArray[e]}
+                  mainText={data.getChang.changInfo[changArray[e]]}
+                  key={`lolchangScore${e}`}
+                />
+              );
+            })}
+        </div>
+      ) : (
+        <LolchangScoreGridLayoutContainer />
+      )}
+    </>
   );
 };
 

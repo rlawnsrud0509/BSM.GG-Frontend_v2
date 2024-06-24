@@ -6,6 +6,8 @@ import { style } from "@vanilla-extract/css";
 export const Container = style(
   Column({
     width: "100%",
+    minWidth: "130rem",
+    maxWidth: "150rem",
     position: "relative",
 
     justifyContent: "flex-start",
@@ -67,17 +69,4 @@ export const LolchangGridContainer = style({
 
   gap: "4rem",
   boxSizing: "border-box",
-});
-
-export const LolchangScoreGridContainer = style({
-  display: "grid",
-
-  gridTemplateColumns: "1fr 1fr 1fr",
-  gridTemplateRows: "1fr 1fr 1fr",
-  placeItems: "center",
-  gridColumn: "2",
-  gridRow: "1/3",
-
-  gap: "1rem",
-  margin: 0,
 });

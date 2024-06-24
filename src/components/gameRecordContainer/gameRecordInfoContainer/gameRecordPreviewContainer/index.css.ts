@@ -5,7 +5,8 @@ import { createVar, style } from "@vanilla-extract/css";
 
 export const containerColor = createVar();
 export const gameTypeColor = createVar();
-export const TeamContainerColor = createVar();
+export const teamContainerColor = createVar();
+export const detailGameInfoOpenButtonColor = createVar();
 
 export const Container = style(
   Row({
@@ -47,7 +48,7 @@ export const GameInfoTextSection = style(
 );
 
 export const GameTypeText = style({
-  ...font["xl"],
+  ...font["lg"],
   color: gameTypeColor,
 });
 
@@ -78,9 +79,10 @@ export const TeamUserInfoContainer = style({
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
   gridTemplateRows: "1fr 1fr 1fr 1fr 1fr",
+  gridAutoFlow: "column",
 
   gap: "0.6rem",
-  backgroundColor: TeamContainerColor,
+  backgroundColor: teamContainerColor,
   padding: "0.6rem",
   borderRadius: "0.5rem",
 });
@@ -96,11 +98,24 @@ export const TeamUserInfoIcon = style({
   height: "2rem",
 
   borderRadius: "0.2rem",
-  backgroundColor: theme.gray[200],
+  backgroundColor: theme.gray[900],
+  position: "relative",
+
+  overflow: "hidden",
 });
 
 export const TeamUserNameText = style({
   ...font["sm"],
+  width: "5rem",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  wordBreak: "break-all",
+  color: theme.gray[800],
+});
+
+export const CurrentUserNameText = style({
+  ...font["sm"],
+  fontWeight: "600",
   width: "5rem",
   overflow: "hidden",
   textOverflow: "ellipsis",
@@ -120,16 +135,17 @@ export const DetailGameInfoOpenButton = style({
   boxSizing: "border-box",
   alignItems: "flex-end",
 
-  backgroundColor: theme.primary[500],
+  backgroundColor: detailGameInfoOpenButtonColor,
   cursor: "pointer",
 
   transition: "ease-out 0.1s",
 
   ":hover": {
-    backgroundColor: theme.primary[400],
+    opacity: 0.6,
   },
 
   ":active": {
-    backgroundColor: theme.primary[300],
+    opacity: 0.4,
+    transition: "ease-out 0.05s",
   },
 });

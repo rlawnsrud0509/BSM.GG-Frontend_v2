@@ -25,7 +25,10 @@ const AdditionalInfo = () => {
               style={assignInlineVars({
                 [S.InputColor]: `0 0 0 0.2rem ${theme.primary[300]}`,
               })}
-              onChange={setUserName}
+              onChange={(e) => {
+                setUserName(e);
+                setErrorState(false);
+              }}
             />
             <input
               className={S.TagInput}
@@ -33,7 +36,10 @@ const AdditionalInfo = () => {
               style={assignInlineVars({
                 [S.InputColor]: `0 0 0 0.2rem ${theme.primary[300]}`,
               })}
-              onChange={setUserTag}
+              onChange={(e) => {
+                setUserTag(e);
+                setErrorState(false);
+              }}
             />
           </div>
         </div>

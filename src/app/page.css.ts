@@ -8,6 +8,6 @@ export const Conatiner = style(
 
     justifyContent: "flex-start",
     gap: "5rem",
-    paddingTop: "24rem",
+    paddingTop: "26rem",
   }),
 );

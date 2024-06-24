@@ -7,13 +7,31 @@ import ArrowIcon from "@/style/base/svg/arrowIcon";
 import ChampionInfoImg from "@/components/common/championInfoImg";
 import ItemListBox from "@/components/common/ItemListBox";
 import RunespellGridBox from "@/components/common/runespellGridbox";
+import { getTime } from "@/utils/getTime";
+import { getAverageTier } from "@/utils/getAverageTier";
+import { GameRecordPreviewContainerProperties } from "@/types/components/GameRecordPreviewContainerProperties.type";
+import { getStartedTime } from "@/utils/getStatedTime";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
 
-const GameRecordPreviewContainer = ({ clickFn, state }: { clickFn: any; state: boolean }) => {
+const GameRecordPreviewContainer = (matchData: GameRecordPreviewContainerProperties) => {
+  const [userIndex, setUserIndex] = useState(0);
+  const params = useParams().name as string;
+  const userGameName = decodeURIComponent(params.split("-")[0]);
+  const userTagLine = decodeURIComponent(params.split("-")[1]);
+
+  useEffect(() => {
+    matchData.participants.forEach((e, i) => {
+      e.gameName === userGameName && e.tagLine === userTagLine ? setUserIndex(i) : null;
+    });
+  }, []);
+
   return (
     <main
       className={S.Container}
       style={assignInlineVars({
-        [S.containerColor]: theme.primary[200],
+        [S.containerColor]: matchData.isWin ? theme.primary[200] : theme.secondary[250],
       })}
     >
       <section className={S.GameUserInfoContainer}>
@@ -21,53 +39,106 @@ const GameRecordPreviewContainer = ({ clickFn, state }: { clickFn: any; state: b
           <span
             className={S.GameTypeText}
             style={assignInlineVars({
-              [S.gameTypeColor]: theme.primary[500],
+              [S.gameTypeColor]: matchData.isWin ? theme.primary[500] : theme.secondary[500],
             })}
           >
-            솔랭
+            {matchData.gameType}
           </span>
-          <span className={S.GameInfoText}>2일 전</span>
+          <span className={S.GameInfoText}>{getStartedTime(matchData.gameStartedAt)}</span>
         </section>
         <section className={S.GameChampionInfoSection}>
-          <ChampionInfoImg championName="아트록스" level={14} containerSize={7} />
-          <RunespellGridBox runeSpellList={["d", "d", "d", "d"]} containerSize={3} />
+          <ChampionInfoImg
+            championId={matchData.participants[userIndex].champion.id}
+            level={matchData.participants[userIndex].championLevel}
+            containerSize={7}
+          />
+          <RunespellGridBox
+            runeSpellList={[
+              matchData.participants[userIndex].spell1,
+              matchData.participants[userIndex].spell2,
+              matchData.participants[userIndex].mainPerk,
+              matchData.participants[userIndex].subPerk,
+            ]}
+            containerSize={3}
+          />
           <div className={S.ChampionKillSection}>
-            <KDAText kill={10} death={5} assist={4} type="base" />
-            <KDAavgText kill={10} death={5} assist={4} type="base" />
+            <KDAText
+              kill={matchData.participants[userIndex].kills}
+              death={matchData.participants[userIndex].deaths}
+              assist={matchData.participants[userIndex].assists}
+              type="base"
+            />
+            <KDAavgText
+              kill={matchData.participants[userIndex].kills}
+              death={matchData.participants[userIndex].deaths}
+              assist={matchData.participants[userIndex].assists}
+              type="base"
+            />
           </div>
         </section>
         <section className={S.GameInfoTextSection}>
-          <span className={S.KillRateText}>킬관여 70%</span>
-          <span className={S.GameInfoText}>제어 와드 4</span>
-          <span className={S.GameInfoText}>CS 152</span>
+          <span className={S.KillRateText}>
+            킬관여 {matchData.participants[userIndex].killRate}%
+          </span>
+          <span className={S.GameInfoText}>
+            제어 와드 {matchData.participants[userIndex].visionWard}
+          </span>
+          <span className={S.GameInfoText}>CS {matchData.participants[userIndex].cs}</span>
         </section>
         <section className={S.GameInfoTextSection}>
-          <span className={S.GameInfoText}>승리</span>
-          <span className={S.GameInfoText}>16분 18초</span>
+          <span className={S.GameInfoText}>{matchData.isWin ? "승리" : "패배"}</span>
+          <span className={S.GameInfoText}>{getTime(matchData.gameDuration)}</span>
         </section>
-        <ItemListBox ItemList={["d", "d", "d", "d", "d", "d", "d"]} />
+        <ItemListBox
+          itemList={matchData.participants[userIndex].items}
+          ward={matchData.participants[userIndex].ward}
+        />
         <section className={S.GameInfoTextSection}>
           <span className={S.GameInfoText}>매치 평균</span>
-          <span className={S.GameInfoText}>GrandMaster</span>
+          <span className={S.GameInfoText}>
+            {getAverageTier(matchData.participants.map((e) => e.soloPoint))}
+          </span>
         </section>
       </section>
       <section
         className={S.TeamUserInfoContainer}
         style={assignInlineVars({
-          [S.TeamContainerColor]: theme.primary[300],
+          [S.teamContainerColor]: matchData.isWin ? theme.primary[300] : theme.secondary[300],
         })}
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => {
+        {matchData.participants.map((e, i) => {
           return (
-            <div key={`dummy1${e}`} className={S.TeamUserInfoSection}>
-              <div className={S.TeamUserInfoIcon} />
-              <span className={S.TeamUserNameText}>아자wfwef이팅</span>
+            <div key={`participants${i}`} className={S.TeamUserInfoSection}>
+              <div className={S.TeamUserInfoIcon}>
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_URL}champion/${e.champion.id}.png`}
+                  alt="teamUserInfoIcon"
+                  fill
+                />
+              </div>
+              <span
+                className={
+                  e.gameName === userGameName && e.tagLine === userTagLine
+                    ? S.CurrentUserNameText
+                    : S.TeamUserNameText
+                }
+              >
+                {e.gameName}
+              </span>
             </div>
           );
         })}
       </section>
-      <div className={S.DetailGameInfoOpenButton} onClick={() => clickFn()}>
-        <ArrowIcon deg={state ? 180 : 0} />
+      <div
+        className={S.DetailGameInfoOpenButton}
+        style={assignInlineVars({
+          [S.detailGameInfoOpenButtonColor]: matchData.isWin
+            ? theme.primary[500]
+            : theme.secondary[500],
+        })}
+        onClick={() => matchData.clickFn()}
+      >
+        <ArrowIcon deg={matchData.state ? 180 : 0} />
       </div>
     </main>
   );

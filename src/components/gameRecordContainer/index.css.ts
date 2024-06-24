@@ -1,3 +1,4 @@
+import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
 import { Column, Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
@@ -7,10 +8,12 @@ export const Container = style(
     width: "100%",
     position: "relative",
     gap: "1.6rem",
+
+    paddingBottom: "10rem",
   }),
 );
 
-export const gameRecordHeader = style(
+export const GameRecordHeader = style(
   Row({
     width: "100%",
     justifyContent: "flex-start",
@@ -24,3 +27,15 @@ export const gameRecordHeader = style(
     boxShadow: `0 0 0.8rem ${theme.gray[200]}`,
   }),
 );
+
+export const NoRecordText = style({
+  ...font["4xl"],
+  marginTop: "5rem",
+  color: theme.gray[400],
+});
+
+export const ObserveDiv = style({
+  opacity: 0,
+  width: "100%",
+  height: "50px",
+});

@@ -1,17 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import GameRecordHeaderLink from "./gameRecordHeaderLink";
 import * as S from "./index.css";
-import { GAME_RECORD_HEADER } from "@/constants/gameRecordHeader";
+import { GAME_RECORD_HEADER } from "@/constants/gameRecord";
 import GameRecordInfoContainer from "./gameRecordInfoContainer";
+import { useGetUserRecordDataQuery } from "@/service/record/graphql";
+import { useUserParams } from "@/hooks/useUserParams";
+import { useObserver } from "@/hooks/useObserver";
+import { GameRecordInfoProperties } from "@/types/components/GameRecordInfoProperties.type";
+import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
 
 const GameRecordContainer = () => {
   const [selectedLink, setSelectedLink] = useState(GAME_RECORD_HEADER.전체);
+  const [page, setPage] = useState(0);
+  const userParams = useUserParams();
+
+  const { data } = useGetUserRecordDataQuery(`${userParams}`, page);
+  const [gameData, setGameData] = useState<GameRecordInfoProperties>({
+    getMatches: {
+      matches: [],
+    },
+  });
+
+  const { isIntersecting, setIsIntersecting, DOMref } = useObserver(0.3);
+
+  useEffect(() => {
+    if (isIntersecting) {
+      setPage((prev) => prev + 1);
+      setIsIntersecting(false);
+    }
+  }, [isIntersecting]);
+
+  useLayoutEffect(() => {
+    setGameData({
+      getMatches: {
+        matches: [...gameData.getMatches.matches, ...data.getMatches.matches],
+      },
+    });
+  }, [data]);
 
   return (
     <div className={S.Container}>
-      <div className={S.gameRecordHeader}>
+      <div className={S.GameRecordHeader}>
         {Object.keys(GAME_RECORD_HEADER).map((e, i) => (
           <GameRecordHeaderLink
             key={`GameRecordLink${i}`}
@@ -21,12 +52,19 @@ const GameRecordContainer = () => {
           />
         ))}
       </div>
-      <GameRecordInfoContainer />
-      <GameRecordInfoContainer />
-      <GameRecordInfoContainer />
-      <GameRecordInfoContainer />
-      <GameRecordInfoContainer />
-      <GameRecordInfoContainer />
+      {gameData &&
+        (selectedLink !== "전체"
+          ? gameData.getMatches.matches
+              .filter((e) => e.gameType === selectedLink)
+              .map((e: GameRecordInfoContainerProperties, i: number) => {
+                return (
+                  <GameRecordInfoContainer key={`GameRecordInfo${i} ${selectedLink}`} {...e} />
+                );
+              })
+          : gameData.getMatches.matches.map((e: GameRecordInfoContainerProperties, i: number) => {
+              return <GameRecordInfoContainer key={`GameRecordInfo${i} ${selectedLink}`} {...e} />;
+            }))}
+      <div className={S.ObserveDiv} ref={DOMref} />
     </div>
   );
 };
