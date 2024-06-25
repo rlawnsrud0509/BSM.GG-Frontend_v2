@@ -1,8 +1,7 @@
 import ProfileContainer from "@/components/profile/profileContainer";
 import * as S from "./page.css";
 import RankInfoContainer from "@/components/ranking/rankInfoContainer";
-import PlayedChampionListContainer from "@/components/playedChampionListContainer";
-import GameRecordContainer from "@/components/gameRecordContainer";
+import GameRecordContainer from "@/components/record/gameRecordContainer";
 import { Suspense } from "react";
 import ProfilePreviewLayoutContainer from "@/components/profile/profilePreviewLayoutContainer";
 import RankInfoLayoutContainer from "@/components/ranking/rankInfoLayoutContainer";
