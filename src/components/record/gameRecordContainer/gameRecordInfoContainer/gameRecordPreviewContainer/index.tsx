@@ -1,16 +1,18 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
 import { theme } from "@/style/base/theme/index.css";
-import KDAText from "@/components/common/KDAText";
-import KDAavgText from "@/components/common/KDAavgText";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+
+import {
+  KDAText,
+  KDAavgText,
+  ChampionInfoImg,
+  ItemListBox,
+  RunespellGridBox,
+} from "@/components/common";
 import ArrowIcon from "@/style/base/svg/arrowIcon";
-import ChampionInfoImg from "@/components/common/championInfoImg";
-import ItemListBox from "@/components/common/ItemListBox";
-import RunespellGridBox from "@/components/common/runespellGridbox";
-import { getTime } from "@/utils/getTime";
-import { getAverageTier } from "@/utils/getAverageTier";
+import { getAverageTier, getStartedTime, getTime } from "@/utils";
 import { GameRecordPreviewContainerProperties } from "@/types/components/GameRecordPreviewContainerProperties.type";
-import { getStartedTime } from "@/utils/getStatedTime";
+
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";

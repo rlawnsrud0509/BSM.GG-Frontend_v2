@@ -1,11 +1,11 @@
-import { AdditionalModalInfoProperties } from "@/types/components/AdditionalInfoModalProperties.type";
 import * as S from "./index.css";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import ModalLayout from "@/components/common/layouts/modalLayout";
+import { AdditionalModalInfoProperties } from "@/types/components/AdditionalInfoModalProperties.type";
 import ArrowIcon from "@/style/base/svg/arrowIcon";
 import Link from "next/link";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 
-const AdditionalInfoModal = ({ animationState, closeModal }: AdditionalModalInfoProperties) => {
+const AdditionalInfoModal = ({ animationState }: AdditionalModalInfoProperties) => {
   return (
     <ModalLayout>
       <div

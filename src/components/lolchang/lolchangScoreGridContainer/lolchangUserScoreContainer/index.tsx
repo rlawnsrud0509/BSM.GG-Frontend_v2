@@ -1,6 +1,6 @@
 import * as S from "./index.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { getFormattedNumber } from "@/utils/getFormattedNumber";
+import { getFormattedNumber } from "@/utils";
 import { LolchangScoreMappingData } from "@/constants/lolchang";
 
 const LolchangUserScoreContainer = ({

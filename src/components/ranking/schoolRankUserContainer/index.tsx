@@ -1,12 +1,10 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
-import { getRankColor } from "@/utils/getRankColor";
-import { getRankIcon } from "@/utils/getRankIcon";
-import { getWinRateColor } from "@/utils/getWinrateColor";
 import Link from "next/link";
-import { getFormattedClassNumber } from "@/utils/getFormattedClassNumber";
-import { RankingContainerProperties } from "@/types/components/RankingContainerProperties.type";
 import Image from "next/image";
+
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { RankingContainerProperties } from "@/types/components/RankingContainerProperties.type";
+import { getRankColor, getRankIcon, getWinRateColor, getFormattedClassNumber } from "@/utils";
 
 const SchoolRankUserContainer = ({
   classNo,

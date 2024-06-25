@@ -1,9 +1,10 @@
 "use client";
 
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
-import { useGetLolchangInfoQuery } from "@/service/lolchang/graphql";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { OnelineReview } from "@/constants/lolchang";
+
+import { useGetLolchangInfoQuery } from "@/service/lolchang/graphql";
 import { useEffect, useState } from "react";
 
 const LolchangUserGameInfoContainer = () => {

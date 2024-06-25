@@ -1,9 +1,10 @@
 "use client";
 
-import { useUserParams } from "@/hooks/useUserParams";
 import * as S from "./index.css";
-import { useGetUserFlexRankInfoQuery, useGetUserSoloRankInfoQuery } from "@/service/record/graphql";
 import Image from "next/image";
+
+import { useUserParams } from "@/hooks/useUserParams";
+import { useGetUserFlexRankInfoQuery, useGetUserSoloRankInfoQuery } from "@/service/record/graphql";
 
 const RankInfoContainer = ({ rankTypeText }: { rankTypeText: string }) => {
   const rankField = rankTypeText === "솔로랭크" ? "soloTier" : "flexTier";

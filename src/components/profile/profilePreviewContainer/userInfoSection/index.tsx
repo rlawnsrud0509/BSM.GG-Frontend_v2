@@ -1,7 +1,6 @@
-import { UserInfoSectionProperties } from "@/types/components/userInfoSectionProperties.type";
 import * as S from "./index.css";
-import { getFormattedClassNumber } from "@/utils/getFormattedClassNumber";
-import { getUserPercentage } from "@/utils/getUserPercentage";
+import { getFormattedClassNumber, getUserPercentage } from "@/utils";
+import { UserInfoSectionProperties } from "@/types/components/userInfoSectionProperties.type";
 
 const UserinfoSection = ({
   getSummoner: { gameName, tagLine, ranking, name, grade, classNo, studentNo, userCount },

@@ -1,4 +1,3 @@
-import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
 import { Button } from "@/style/ui/Button";
 import { Row } from "@/style/ui/Flex";

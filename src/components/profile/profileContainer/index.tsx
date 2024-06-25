@@ -1,10 +1,11 @@
 "use client";
 
 import * as S from "./index.css";
+import Image from "next/image";
 import UserinfoSection from "./userInfoSection";
+
 import { useGetUserProfileInfoQuery } from "@/service/record/graphql";
 import { useUserParams } from "@/hooks/useUserParams";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const ProfileContainer = () => {

@@ -1,6 +1,6 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
-import { KDATextProperties } from "@/types/components/KDATextProperties.type";
+import { KDATextProperties } from "@/types/components/common/KDATextProperties.type";
 import { theme } from "@/style/base/theme/index.css";
 
 const KDAavgText = ({ kill, death, assist, type }: KDATextProperties) => {

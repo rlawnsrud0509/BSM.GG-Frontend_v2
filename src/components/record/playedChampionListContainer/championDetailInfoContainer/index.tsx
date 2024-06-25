@@ -1,8 +1,8 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
-import { theme } from "@/style/base/theme/index.css";
-import KDAavgText from "@/components/common/KDAavgText";
-import { getWinRateColor } from "@/utils/getWinrateColor";
+
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { KDAavgText } from "@/components/common";
+import { getWinRateColor } from "@/utils";
 
 const ChampionDetailInfoContainer = () => {
   const dummyData = {

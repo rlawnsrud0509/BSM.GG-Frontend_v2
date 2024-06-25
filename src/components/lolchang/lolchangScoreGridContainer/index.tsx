@@ -1,13 +1,13 @@
 "use client";
 
 import * as S from "./index.css";
-import { useGetLolchangInfoQuery } from "@/service/lolchang/graphql";
 import LolchangUserScoreContainer from "./lolchangUserScoreContainer";
-import { getRandomNumber } from "@/utils/getRandomNumber";
-import { useEffect, useState } from "react";
 import LolchangScoreGridLayoutContainer from "../lolchangScoreGridLayoutContainer";
+import { getRandomNumber } from "@/utils";
+import { useEffect, useState } from "react";
+import { useGetLolchangInfoQuery } from "@/service/lolchang/graphql";
 
-const LolchanScoreGridContainer = () => {
+const LolchangScoreGridContainer = () => {
   const { data } = useGetLolchangInfoQuery();
   const [randNumArray, setRandNumArray] = useState<number[]>([]);
 
@@ -39,4 +39,4 @@ const LolchanScoreGridContainer = () => {
   );
 };
 
-export default LolchanScoreGridContainer;
+export default LolchangScoreGridContainer;

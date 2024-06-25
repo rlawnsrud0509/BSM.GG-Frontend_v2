@@ -1,7 +1,8 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./index.css";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { theme } from "@/style/base/theme/index.css";
-import UserChampionDetailInfoSection from "@/components/common/userChampionDetailInfoSection";
+
+import { UserChampionDetailInfoSection } from "@/components/common";
 import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
 import { useUserParams } from "@/hooks/useUserParams";
 

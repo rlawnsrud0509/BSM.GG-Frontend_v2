@@ -1,5 +1,5 @@
-import { RunespellGridboxProperties } from "@/types/components/common/RunespellGridboxProperties.type";
 import * as S from "./index.css";
+import { RunespellGridboxProperties } from "@/types/components/common/RunespellGridboxProperties.type";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 
 const RunespellGridBox = ({ runeSpellList, containerSize }: RunespellGridboxProperties) => {

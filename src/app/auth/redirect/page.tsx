@@ -1,10 +1,11 @@
 "use client";
 
-import { useModal } from "@/hooks/useModal";
 import * as S from "./page.css";
-import AdditionalInfoModal from "@/components/modal/additionalInfoModalContainer";
+import { AddtionalInfoModal } from "@/components/modal";
+
 import { useGetUserStatusMutation } from "@/service/auth/mutation";
 import { useSearchParams } from "next/navigation";
+import { useModal } from "@/hooks/useModal";
 import { useEffect } from "react";
 
 const Redirect = () => {
@@ -20,9 +21,7 @@ const Redirect = () => {
     <div className={S.Container}>
       <span className={S.RedirectText}>로그인 시도 중 입니다 ...</span>
 
-      {modalState && (
-        <AdditionalInfoModal animationState={animationState} closeModal={closeModal} />
-      )}
+      {modalState && <AddtionalInfoModal animationState={animationState} closeModal={closeModal} />}
     </div>
   );
 };

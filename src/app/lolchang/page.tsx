@@ -1,10 +1,13 @@
 import * as S from "./page.css";
-import LolchangUserGameInfoContainer from "@/components/lolchang/lolchangUserGameInfoContainer";
-import LolchanScoreGridContainer from "@/components/lolchang/lolchangScoreGridContainer";
 import { Suspense } from "react";
-import ProfilePreviewLayoutContainer from "@/components/profile/profilePreviewLayoutContainer";
-import LolchangScoreGridLayoutContainer from "@/components/lolchang/lolchangScoreGridLayoutContainer";
-import LolchangProfileContainer from "@/components/lolchang/lolchangProfilePreviewContainer";
+
+import { ProfilePreviewLayoutContainer } from "@/components/profile";
+import {
+  LolchangScoreGridLayoutContainer,
+  LolchangUserGameInfoContainer,
+  LolchangScoreGridContainer,
+  LolchangProfilePreviewContainer,
+} from "@/components/lolchang";
 
 const Lolchang = () => {
   return (
@@ -18,10 +21,10 @@ const Lolchang = () => {
 
       <div className={S.LolchangGridContainer}>
         <Suspense fallback={<ProfilePreviewLayoutContainer />}>
-          <LolchangProfileContainer />
+          <LolchangProfilePreviewContainer />
         </Suspense>
         <Suspense fallback={<LolchangScoreGridLayoutContainer />}>
-          <LolchanScoreGridContainer />
+          <LolchangScoreGridContainer />
         </Suspense>
         <LolchangUserGameInfoContainer />
       </div>

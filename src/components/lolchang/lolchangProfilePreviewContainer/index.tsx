@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useGetLolchangSummonerQuery } from "@/service/lolchang/graphql";
 import Image from "next/image";
 
-const LolchangProfileContainer = () => {
+const LolchangProfilePreviewContainer = () => {
   const { data } = useGetLolchangSummonerQuery();
 
   return (
@@ -49,4 +49,4 @@ const LolchangProfileContainer = () => {
   );
 };
 
-export default LolchangProfileContainer;
+export default LolchangProfilePreviewContainer;

@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
-import GameRecordHeaderLink from "./gameRecordHeaderLink";
 import * as S from "./index.css";
-import { GAME_RECORD_HEADER } from "@/constants/gameRecord";
 import GameRecordInfoContainer from "./gameRecordInfoContainer";
+import GameRecordHeaderLink from "./gameRecordHeaderLink";
+
+import { GAME_RECORD_HEADER } from "@/constants/gameRecord";
+import { GameRecordInfoProperties } from "@/types/components/GameRecordInfoProperties.type";
+import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
+
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useGetUserRecordDataQuery } from "@/service/record/graphql";
 import { useUserParams } from "@/hooks/useUserParams";
 import { useObserver } from "@/hooks/useObserver";
-import { GameRecordInfoProperties } from "@/types/components/GameRecordInfoProperties.type";
-import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
 
 const GameRecordContainer = () => {
   const [selectedLink, setSelectedLink] = useState(GAME_RECORD_HEADER.전체);

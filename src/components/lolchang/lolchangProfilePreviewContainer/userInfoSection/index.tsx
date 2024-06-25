@@ -1,6 +1,5 @@
 import * as S from "./index.css";
-import { getFormattedClassNumber } from "@/utils/getFormattedClassNumber";
-import { getUserPercentage } from "@/utils/getUserPercentage";
+import { getFormattedClassNumber, getUserPercentage } from "@/utils";
 import { LolchangSummonerInfoProperties } from "@/types/components/LolchangSummonerInfoProperties.type";
 
 const UserinfoSection = ({

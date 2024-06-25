@@ -1,7 +1,7 @@
-import Header from "@/components/common/header";
-import Provider from "@/components/common/provider";
 import Pretendard from "@/style/base/font/PretendardVariable.woff2";
 import "@/style/base/global/index.css";
+
+import { Header, Provider } from "@/components/common";
 
 export default function RootLayout({
   children,

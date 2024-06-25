@@ -1,11 +1,12 @@
 "use client";
 
-import { useGetRankingInfoQuery } from "@/service/ranking/graphql";
-import SchoolRankUserContainer from "..//schoolRankUserContainer";
 import * as S from "./index.css";
+import { RankingInfoProperties } from "@/types/components/RankingInfoProperties.type";
+import SchoolRankUserContainer from "..//schoolRankUserContainer";
+
+import { useGetRankingInfoQuery } from "@/service/ranking/graphql";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useObserver } from "@/hooks/useObserver";
-import { RankingInfoProperties } from "@/types/components/RankingInfoProperties.type";
 
 const RankInfoSection = () => {
   const [page, setPage] = useState(0);

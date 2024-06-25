@@ -1,5 +1,4 @@
 import { font } from "@/style/base/font";
-import { theme } from "@/style/base/theme/index.css";
 import { Row } from "@/style/ui/Flex";
 import { createVar, style } from "@vanilla-extract/css";
 

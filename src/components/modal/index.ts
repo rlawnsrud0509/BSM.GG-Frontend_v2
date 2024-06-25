@@ -1,1 +1,1 @@
-export { default as AddtionalInfoModalContainer } from "./additionalInfoModalContainer";
+export { default as AddtionalInfoModal } from "./additionalInfoModalContainer";

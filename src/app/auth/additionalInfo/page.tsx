@@ -1,11 +1,12 @@
 "use client";
 
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as S from "./page.css";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { theme } from "@/style/base/theme/index.css";
+
 import { useState } from "react";
-import { useAddUserGameNameMutation } from "@/service/auth/mutation";
 import { useInput } from "@/hooks/useInput";
+import { useAddUserGameNameMutation } from "@/service/auth/mutation";
 
 const AdditionalInfo = () => {
   const [errorState, setErrorState] = useState(false);

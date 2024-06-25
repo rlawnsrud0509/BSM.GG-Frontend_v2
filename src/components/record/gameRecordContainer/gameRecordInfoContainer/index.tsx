@@ -1,7 +1,8 @@
-import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
+import * as S from "./index.css";
 import GameRecordDetailContainer from "./gameRecordDetailContainer";
 import GameRecordPreviewContainer from "./gameRecordPreviewContainer";
-import * as S from "./index.css";
+import { GameRecordInfoContainerProperties } from "@/types/components/GameRecordInfoContainerProperties.type";
+
 import { useToggle } from "./index.hooks";
 
 const GameRecordInfoContainer = ({ ...matchData }: GameRecordInfoContainerProperties) => {
