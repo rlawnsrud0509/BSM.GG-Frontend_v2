@@ -1,9 +1,10 @@
 import * as S from "./index.css";
-import { Logo } from "@/style/base/svg";
-import { ROUTE, ROUTENAME } from "@/constants/router";
 import Link from "next/link";
 import HeaderLink from "./headerLink";
-import { getItem } from "@/utils/localStorage";
+
+import { Logo } from "@/style/base/svg";
+import { ROUTE, ROUTENAME } from "@/constants/router";
+import { getItem } from "@/utils";
 
 const Header = () => {
   return (

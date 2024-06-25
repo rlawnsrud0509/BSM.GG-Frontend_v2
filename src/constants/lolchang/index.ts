@@ -1,4 +1,4 @@
-import { ContainerTextColor } from "@/components/lolchangScoreGridContainer/lolchangUserScoreContainer/index.css";
+import { ContainerTextColor } from "@/components/lolchang/lolchangScoreGridContainer/lolchangUserScoreContainer/index.css";
 import { theme } from "@/style/base/theme/index.css";
 import { LolchangMappingDataProperties } from "@/types/constants/LolchangMappingDataProperties.type";
 

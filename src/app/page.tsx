@@ -1,7 +1,7 @@
 import { MainLogo } from "@/style/base/svg";
 import { Conatiner } from "./page.css";
-import RecordSearchInput from "@/components/recordSearchInput";
-import RegisteredSummonerContainer from "@/components/registeredSummonerContainer";
+
+import { RecordSearchInput, RegisteredSummonerContainer } from "@/components/landing";
 
 export default function Home() {
   return (

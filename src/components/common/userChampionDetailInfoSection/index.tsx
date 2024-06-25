@@ -5,7 +5,7 @@ import ChampionInfoImg from "../championInfoImg";
 import * as S from "./index.css";
 import { UserChampionDetailInfoProperties } from "@/types/components/UserChampionDetailInfoProperties.type";
 import Image from "next/image";
-import RunespellGridBox from "../runespellGridbox";
+import RunespellGridBox from "../runespellGridBox";
 
 const UserChampionDetailInfoSection = (particiPantsData: UserChampionDetailInfoProperties) => {
   return (
