@@ -1,7 +1,7 @@
 "use client";
 
 import { useGetRankingInfoQuery } from "@/service/ranking/graphql";
-import SchoolRankUserContainer from "../schoolRankUserContainer";
+import SchoolRankUserContainer from "..//schoolRankUserContainer";
 import * as S from "./index.css";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useObserver } from "@/hooks/useObserver";

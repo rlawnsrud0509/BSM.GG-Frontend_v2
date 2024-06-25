@@ -1,11 +1,11 @@
-import ProfileContainer from "@/components/profileContainer";
+import ProfileContainer from "@/components/profile/profileContainer";
 import * as S from "./page.css";
-import RankInfoContainer from "@/components/rankInfoContainer";
+import RankInfoContainer from "@/components/ranking/rankInfoContainer";
 import PlayedChampionListContainer from "@/components/playedChampionListContainer";
 import GameRecordContainer from "@/components/gameRecordContainer";
 import { Suspense } from "react";
-import ProfilePreviewLayoutContainer from "@/components/profilePreviewLayoutContainer";
-import RankInfoLayoutContainer from "@/components/rankInfoLayoutContainer";
+import ProfilePreviewLayoutContainer from "@/components/profile/profilePreviewLayoutContainer";
+import RankInfoLayoutContainer from "@/components/ranking/rankInfoLayoutContainer";
 
 const UserRecord = () => {
   return (

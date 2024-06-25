@@ -1,10 +1,10 @@
 "use client";
 
 import { Suspense } from "react";
-import ProfilePreviewContainer from "../profilePreviewContainer";
-import ProfilePreviewLayoutContainer from "../profilePreviewLayoutContainer";
+import ProfilePreviewContainer from "../../profile/profilePreviewContainer";
+import ProfilePreviewLayoutContainer from "../../profile/profilePreviewLayoutContainer";
 import * as S from "./index.css";
-import ProfileLoginPreviewContainer from "../profileLoginPreviewContainer";
+import ProfileLoginPreviewContainer from "../../profile/profileLoginPreviewContainer";
 import { useLogined } from "@/hooks/useLogined";
 import { useLoading } from "@/hooks/useLoading";
 
@@ -21,7 +21,7 @@ const RegisteredSummonerContainer = () => {
         <>
           {isLogin ? (
             <Suspense fallback={<ProfilePreviewLayoutContainer />}>
-              <ProfilePreviewContainer type="summoner" />
+              <ProfilePreviewContainer />
             </Suspense>
           ) : (
             <ProfileLoginPreviewContainer />

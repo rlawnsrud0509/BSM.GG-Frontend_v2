@@ -1,6 +1,6 @@
-import SchoolRankHeaderContainer from "@/components/schoolRankHeaderContainer";
+import SchoolRankHeaderContainer from "@/components/ranking/schoolRankHeaderContainer";
 import * as S from "./page.css";
-import RankInfoSection from "@/components/rankInfoSection";
+import RankInfoSection from "@/components/ranking/rankInfoSection";
 
 const Ranking = () => {
   return (

@@ -1,10 +1,10 @@
 import * as S from "./page.css";
-import LolchangUserGameInfoContainer from "@/components/lolchangUserGameInfoContainer";
-import LolchanScoreGridContainer from "@/components/lolchangScoreGridContainer";
+import LolchangUserGameInfoContainer from "@/components/lolchang/lolchangUserGameInfoContainer";
+import LolchanScoreGridContainer from "@/components/lolchang/lolchangScoreGridContainer";
 import { Suspense } from "react";
-import ProfilePreviewLayoutContainer from "@/components/profilePreviewLayoutContainer";
-import LolchangScoreGridLayoutContainer from "@/components/lolchangScoreGridLayoutContainer";
-import LolchangProfileContainer from "@/components/lolchangProfilePreviewContainer";
+import ProfilePreviewLayoutContainer from "@/components/profile/profilePreviewLayoutContainer";
+import LolchangScoreGridLayoutContainer from "@/components/lolchang/lolchangScoreGridLayoutContainer";
+import LolchangProfileContainer from "@/components/lolchang/lolchangProfilePreviewContainer";
 
 const Lolchang = () => {
   return (
