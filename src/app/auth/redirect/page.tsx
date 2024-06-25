@@ -21,7 +21,7 @@ const Redirect = () => {
     <div className={S.Container}>
       <span className={S.RedirectText}>로그인 시도 중 입니다 ...</span>
 
-      {modalState && <AddtionalInfoModal animationState={animationState} closeModal={closeModal} />}
+      {modalState && <AddtionalInfoModal animationState={animationState} />}
     </div>
   );
 };
