@@ -13,21 +13,13 @@ import ArrowIcon from "@/style/base/svg/arrowIcon";
 import { getAverageTier, getStartedTime, getTime } from "@/utils";
 import { GameRecordPreviewContainerProperties } from "@/types/components/GameRecordPreviewContainerProperties.type";
 
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import Image from "next/image";
+import { useUserParams } from "@/hooks/useUserParams";
 
 const GameRecordPreviewContainer = (matchData: GameRecordPreviewContainerProperties) => {
-  const [userIndex, setUserIndex] = useState(0);
-  const params = useParams().name as string;
-  const userGameName = decodeURIComponent(params.split("-")[0]);
-  const userTagLine = decodeURIComponent(params.split("-")[1]);
-
-  useEffect(() => {
-    matchData.participants.forEach((e, i) => {
-      e.gameName === userGameName && e.tagLine === userTagLine ? setUserIndex(i) : null;
-    });
-  }, []);
+  const params = useUserParams();
+  const userGameName = decodeURIComponent(params[0].split("-")[0]);
+  const userTagLine = decodeURIComponent(params[0].split("-")[1]);
 
   return (
     <main
@@ -50,50 +42,52 @@ const GameRecordPreviewContainer = (matchData: GameRecordPreviewContainerPropert
         </section>
         <section className={S.GameChampionInfoSection}>
           <ChampionInfoImg
-            championId={matchData.participants[userIndex].champion.id}
-            level={matchData.participants[userIndex].championLevel}
+            championId={matchData.participants[matchData.userIndex].champion.id}
+            level={matchData.participants[matchData.userIndex].championLevel}
             containerSize={7}
           />
           <RunespellGridBox
             runeSpellList={[
-              matchData.participants[userIndex].spell1,
-              matchData.participants[userIndex].spell2,
-              matchData.participants[userIndex].mainPerk,
-              matchData.participants[userIndex].subPerk,
+              matchData.participants[matchData.userIndex].spell1,
+              matchData.participants[matchData.userIndex].spell2,
+              matchData.participants[matchData.userIndex].mainPerk,
+              matchData.participants[matchData.userIndex].subPerk,
             ]}
             containerSize={3}
           />
           <div className={S.ChampionKillSection}>
             <KDAText
-              kill={matchData.participants[userIndex].kills}
-              death={matchData.participants[userIndex].deaths}
-              assist={matchData.participants[userIndex].assists}
+              kill={matchData.participants[matchData.userIndex].kills}
+              death={matchData.participants[matchData.userIndex].deaths}
+              assist={matchData.participants[matchData.userIndex].assists}
               type="base"
             />
             <KDAavgText
-              kill={matchData.participants[userIndex].kills}
-              death={matchData.participants[userIndex].deaths}
-              assist={matchData.participants[userIndex].assists}
+              kill={matchData.participants[matchData.userIndex].kills}
+              death={matchData.participants[matchData.userIndex].deaths}
+              assist={matchData.participants[matchData.userIndex].assists}
               type="base"
             />
           </div>
         </section>
         <section className={S.GameInfoTextSection}>
           <span className={S.KillRateText}>
-            킬관여 {matchData.participants[userIndex].killRate}%
+            킬관여 {matchData.participants[matchData.userIndex].killRate}%
           </span>
           <span className={S.GameInfoText}>
-            제어 와드 {matchData.participants[userIndex].visionWard}
+            제어 와드 {matchData.participants[matchData.userIndex].visionWard}
           </span>
-          <span className={S.GameInfoText}>CS {matchData.participants[userIndex].cs}</span>
+          <span className={S.GameInfoText}>
+            CS {matchData.participants[matchData.userIndex].cs}
+          </span>
         </section>
         <section className={S.GameInfoTextSection}>
           <span className={S.GameInfoText}>{matchData.isWin ? "승리" : "패배"}</span>
           <span className={S.GameInfoText}>{getTime(matchData.gameDuration)}</span>
         </section>
         <ItemListBox
-          itemList={matchData.participants[userIndex].items}
-          ward={matchData.participants[userIndex].ward}
+          itemList={matchData.participants[matchData.userIndex].items}
+          ward={matchData.participants[matchData.userIndex].ward}
         />
         <section className={S.GameInfoTextSection}>
           <span className={S.GameInfoText}>매치 평균</span>

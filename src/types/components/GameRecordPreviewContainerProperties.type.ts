@@ -3,4 +3,5 @@ import { GameRecordInfoContainerProperties } from "./GameRecordInfoContainerProp
 export interface GameRecordPreviewContainerProperties extends GameRecordInfoContainerProperties {
   clickFn: any;
   state: boolean;
+  userIndex: number;
 }

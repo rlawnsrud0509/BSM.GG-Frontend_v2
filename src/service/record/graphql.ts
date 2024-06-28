@@ -3,7 +3,7 @@ import { UserInfoSectionProperties } from "@/types/components/userInfoSectionPro
 import { gql, useSuspenseQuery } from "@apollo/client";
 
 export const useGetUserRecordDataQuery = (parameter: string, page: number) => {
-  const { data } = useSuspenseQuery<GameRecordInfoProperties>(gql`
+  const { data, refetch } = useSuspenseQuery<GameRecordInfoProperties>(gql`
     query {
       getMatches(name: "${parameter}", page: ${page}) {
         matches{
@@ -65,7 +65,7 @@ export const useGetUserRecordDataQuery = (parameter: string, page: number) => {
     }
   `);
 
-  return { data };
+  return { data, refetch };
 };
 
 export const useGetUserProfileInfoQuery = (parameter: string[]) => {

@@ -8,7 +8,7 @@ export const postAuthCode = async (authCode: string) => {
 
 export const postGameName = async (gameName: string, tagLine: string) => {
   const data = await instance.post(
-    "riot/summoner",
+    "summoner",
     { gameName, tagLine: tagLine.trim() },
     authorization(),
   );

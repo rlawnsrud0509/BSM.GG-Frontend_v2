@@ -1,5 +1,5 @@
 import { font } from "@/style/base/font";
-import { Column } from "@/style/ui/Flex";
+import { Column } from "@/style/ui/Fl";
 import { style } from "@vanilla-extract/css";
 
 export const Container = style(

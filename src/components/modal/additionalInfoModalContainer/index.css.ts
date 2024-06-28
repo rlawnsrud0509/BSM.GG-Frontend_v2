@@ -1,6 +1,6 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
-import { Column } from "@/style/ui/Flex";
+import { Column } from "@/style/ui/Fl";
 import { createVar, keyframes, style } from "@vanilla-extract/css";
 
 export const ModalAnimation = createVar();
