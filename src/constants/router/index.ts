@@ -1,4 +1,4 @@
-import { routeProperties } from "@/types/constants/RouteProperties.type";
+import { routeProperties } from "@/types/constants/routeProperties.type";
 
 export const ROUTE: routeProperties = {
   HOME: "/",
