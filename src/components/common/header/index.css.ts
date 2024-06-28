@@ -1,6 +1,6 @@
 import { theme } from "@/style/base/theme/index.css";
 import { Button } from "@/style/ui/Button";
-import { Row } from "@/style/ui/Flex";
+import { Row } from "@/style/ui/Fl";
 import { style } from "@vanilla-extract/css";
 
 export const Container = style(
