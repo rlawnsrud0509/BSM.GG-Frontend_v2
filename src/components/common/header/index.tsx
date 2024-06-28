@@ -1,12 +1,23 @@
+"use client";
+
 import * as S from "./index.css";
 import Link from "next/link";
 import HeaderLink from "./headerLink";
 
 import { Logo } from "@/style/base/svg";
 import { ROUTE, ROUTENAME } from "@/constants/router";
-import { getItem } from "@/utils";
+import { getItem, removeItem } from "@/utils";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const router = useRouter();
+  const [accessToken, setIsAccessToken] = useState("");
+
+  useEffect(() => {
+    setIsAccessToken(String(getItem("access_token")));
+  }, []);
+
   return (
     <nav className={S.Container}>
       <section className={S.HeaderLinkSection}>
@@ -19,16 +30,35 @@ const Header = () => {
           ))}
         </div>
       </section>
-
-      {!String(getItem("access_token")).length ? (
-        <Link href={ROUTE.REGISTER_ACCOUNT}>
-          <div className={S.RegistAccountButton}>소환사명 연동하기</div>
-        </Link>
-      ) : (
-        <Link href={ROUTE.ADDITIONALINFO}>
-          <div className={S.RegistAccountButton}>연동된 소환사명 변경하기</div>
-        </Link>
-      )}
+      <section className={S.HeaderButtonSection}>
+        {accessToken !== "" ? (
+          accessToken === "undefined" ? (
+            <Link href={ROUTE.REGISTER_ACCOUNT}>
+              <div className={S.RegistAccountButton}>소환사명 연동하기</div>
+            </Link>
+          ) : (
+            <Link href={ROUTE.ADDITIONALINFO}>
+              <div className={S.RegistAccountButton}>연동된 소환사명 변경하기</div>
+            </Link>
+          )
+        ) : (
+          <></>
+        )}
+        {accessToken && (
+          <div
+            className={S.RegistAccountButton}
+            onClick={() => {
+              removeItem("access_token");
+              removeItem("game_name");
+              removeItem("tag_line");
+              router.push("/");
+              router.refresh();
+            }}
+          >
+            로그아웃
+          </div>
+        )}
+      </section>
     </nav>
   );
 };

@@ -30,13 +30,15 @@ const ProfilePreviewContainer = () => {
       <div className={S.userProfileSection}>
         <UserinfoSection {...data} />
         <div className={S.UserTierInfoSection}>
-          <div className={S.UserTierImg}>
-            <Image
-              src={`/images/rankImage/${data.getSummoner.soloTier.split(" ")[0]}.png`}
-              alt="rankImage"
-              fill
-            />
-          </div>
+          {data.getSummoner.soloTier && (
+            <div className={S.UserTierImg}>
+              <Image
+                src={`/images/rankImage/${data.getSummoner.soloTier.split(" ")[0]}.png`}
+                alt="rankImage"
+                fill
+              />
+            </div>
+          )}
           <span className={S.UserTierText}>
             {data.getSummoner.soloTier ? data.getSummoner.soloTier : "Unranked"}
           </span>

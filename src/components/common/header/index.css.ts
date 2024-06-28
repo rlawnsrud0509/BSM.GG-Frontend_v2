@@ -28,6 +28,12 @@ export const HeaderLinkSection = style(
   }),
 );
 
+export const HeaderButtonSection = style(
+  Row({
+    gap: "2rem",
+  }),
+);
+
 export const LinkBox = style(Row({ gap: "5rem" }));
 
 export const RegistAccountButton = style(Button({}));

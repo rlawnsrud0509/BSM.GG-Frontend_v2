@@ -4,14 +4,14 @@ import * as S from "./index.css";
 import Image from "next/image";
 import UserinfoSection from "./userInfoSection";
 
-import { useGetUserProfileInfoQuery } from "@/service/record/graphql";
+import { useGetUserProfileInfoQuery, useGetUserRecordDataQuery } from "@/service/record/graphql";
 import { useUserParams } from "@/hooks/useUserParams";
-import { useRouter } from "next/navigation";
 
 const ProfileContainer = () => {
   const userParams = useUserParams();
-  const router = useRouter();
+
   const { data } = useGetUserProfileInfoQuery(userParams);
+  const { refetch } = useGetUserRecordDataQuery(`${userParams}`, 0);
 
   return (
     <section className={S.Container}>
@@ -30,7 +30,7 @@ const ProfileContainer = () => {
       <div className={S.userProfileSection}>
         <UserinfoSection {...data} />
         <div className={S.UserRecordReloadSection}>
-          <button className={S.UserRecordReloadButton} onClick={() => router.refresh()}>
+          <button className={S.UserRecordReloadButton} onClick={() => refetch()}>
             전적 갱신
           </button>
         </div>

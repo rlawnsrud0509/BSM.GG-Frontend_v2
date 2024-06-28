@@ -16,6 +16,7 @@ export const useGetUserStatusMutation = (auth_code: string, openModal: () => voi
         setItem("game_name", res.data.data.gameName);
         setItem("tag_line", res.data.data.tagLine);
         router.push("/");
+        router.refresh();
       } else {
         openModal();
       }
@@ -41,6 +42,7 @@ export const useAddUserGameNameMutation = (
       setItem("game_name", res.data.data.gameName);
       setItem("tag_line", res.data.data.tagLine);
       router.push("/");
+      router.refresh();
     },
     onError: (err: any) => {
       if (err.response.status === 404) setErrorState(true);
