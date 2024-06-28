@@ -1,4 +1,4 @@
-import { Column, Row } from "@/style/ui/Fl";
+import { Column, Row } from "@/style/ui/Flex";
 import { style } from "@vanilla-extract/css";
 
 export const Container = style(
