@@ -20,7 +20,7 @@ jobs:
         with:
           source-directory: 'output'
           destination-github-username: rlawnsrud0509
-          destination-repository-name: BSM.GG-Frontend_v2
+          destination-repository-name: rlawnsrud0509/BSM.GG-Frontend_v2
           user-email: ${{ secrets.EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
