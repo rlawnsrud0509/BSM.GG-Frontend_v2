@@ -20,6 +20,8 @@ const SchoolRankUserContainer = ({
   tagLine,
   studentNo,
   mostChampions,
+  index,
+  lastIndex,
 }: RankingContainerProperties) => {
   return (
     <Link
@@ -28,9 +30,10 @@ const SchoolRankUserContainer = ({
       className={S.Container}
       style={assignInlineVars({
         [S.ContainerColor]: getRankColor(ranking),
+        [S.ContainerAnimation]: `${S.ShowRankingAnimation} 0.2s ${index / 20}s forwards`,
       })}
     >
-      <span className={S.RankText}>{getRankIcon(ranking)}</span>
+      <span className={S.RankText}>{getRankIcon(ranking === lastIndex ? "-" : ranking)}</span>
       <section className={S.PlayerProfileInfoSection}>
         <div className={S.PlayerProfileImg}>
           <Image
@@ -52,13 +55,13 @@ const SchoolRankUserContainer = ({
       <section className={S.MostChampionSection}>
         {mostChampions.map((e, i) => (
           <div className={S.ChampionImg} key={`rankMostChampions ${i}`}>
-            {
+            {e.id && (
               <Image
                 alt="rankMostChampions"
                 src={`${process.env.NEXT_PUBLIC_IMAGE_URL}champion/${e.id}.png`}
                 fill
               />
-            }
+            )}
           </div>
         ))}
       </section>
