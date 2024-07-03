@@ -17,7 +17,7 @@ export const Conatiner = style(
 
     borderRadius: "0.5rem",
 
-    marginTop: "10rem",
+    marginTop: "20rem",
   }),
 );
 
