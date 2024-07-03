@@ -16,7 +16,10 @@ import { GameRecordPreviewContainerProperties } from "@/types/components/GameRec
 import Image from "next/image";
 import { useUserParams } from "@/hooks/useUserParams";
 
-const GameRecordPreviewContainer = (matchData: GameRecordPreviewContainerProperties) => {
+const GameRecordPreviewContainer = ({
+  index = 0,
+  ...matchData
+}: GameRecordPreviewContainerProperties) => {
   const params = useUserParams();
   const userGameName = decodeURIComponent(params[0].split("-")[0]);
   const userTagLine = decodeURIComponent(params[0].split("-")[1]);
@@ -26,6 +29,7 @@ const GameRecordPreviewContainer = (matchData: GameRecordPreviewContainerPropert
       className={S.Container}
       style={assignInlineVars({
         [S.containerColor]: matchData.isWin ? theme.primary[200] : theme.secondary[250],
+        [S.ContainerAnimation]: `${S.ShowRankingAnimation} 0.2s ${index / 20}s forwards`,
       })}
     >
       <section className={S.GameUserInfoContainer}>

@@ -1,12 +1,25 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
 import { Column, Row } from "@/style/ui/Flex";
-import { createVar, style } from "@vanilla-extract/css";
+import { createVar, keyframes, style } from "@vanilla-extract/css";
 
 export const containerColor = createVar();
 export const gameTypeColor = createVar();
 export const teamContainerColor = createVar();
 export const detailGameInfoOpenButtonColor = createVar();
+
+export const ContainerAnimation = createVar();
+
+export const ShowRankingAnimation = keyframes({
+  "0%": {
+    opacity: 0,
+    transform: "translateY(-15%) scaleY(0.7)",
+  },
+  "100%": {
+    opacity: 1,
+    transform: "translateY(0%) scaleY(1)",
+  },
+});
 
 export const Container = style(
   Row({
@@ -20,6 +33,9 @@ export const Container = style(
     justifyContent: "space-between",
     backgroundColor: containerColor,
     gap: "3rem",
+    opacity: 0,
+
+    animation: ContainerAnimation,
 
     boxShadow: `0 0 1rem ${containerColor}`,
   }),
