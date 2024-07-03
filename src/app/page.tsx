@@ -3,10 +3,12 @@ import * as S from "./page.css";
 
 import { RecordSearchInput, RegisteredSummonerContainer } from "@/components/landing";
 import LolchangSummonerContainer from "@/components/landing/lolchangSummonerContainer";
-import ScrollButton from "@/components/landing/scrollButton";
 import RankingInfoContainer from "@/components/landing/rankingInfoContainer";
+import dynamic from "next/dynamic";
 
 export default function Home() {
+  const ScrollButton = dynamic(() => import("@/components/landing/scrollButton"), { ssr: false });
+
   return (
     <div className={S.Conatiner}>
       <ScrollButton />
