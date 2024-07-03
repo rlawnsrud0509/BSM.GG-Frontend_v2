@@ -1,7 +1,7 @@
 import * as S from "./index.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { GameRecordHeaderLinkProperties } from "@/types/components/GameRecordHeaderLinkProperties.type";
 import { theme } from "@/style/base/theme/index.css";
+import { GameRecordHeaderLinkProperties } from "@/types/components/gameRecordHeaderLinkProperties.type";
 
 const GameRecordHeaderLink = ({
   linkText,
