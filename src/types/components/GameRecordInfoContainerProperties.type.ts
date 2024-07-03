@@ -3,6 +3,7 @@ export interface GameRecordInfoContainerProperties {
   gameStartedAt: number;
   gameType: string;
   isWin: boolean;
+  index?: number;
   participants: {
     assists: number;
     damage: number;
