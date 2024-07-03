@@ -21,3 +21,4 @@ const RunespellGridBox = ({ runeSpellList, containerSize }: RunespellGridboxProp
 };
 
 export default RunespellGridBox;
+
