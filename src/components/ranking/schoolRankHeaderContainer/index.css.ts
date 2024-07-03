@@ -3,7 +3,7 @@ import { theme } from "@/style/base/theme/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const Container = style({
-  width: "70%",
+  width: "85%",
   display: "grid",
   gridTemplateColumns: "1fr 3fr 2fr 3fr 1fr",
 

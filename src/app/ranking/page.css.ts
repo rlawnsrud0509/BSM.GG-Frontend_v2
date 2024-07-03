@@ -17,7 +17,7 @@ export const Container = style(
 );
 
 export const PageText = style({
-  width: "80%",
+  width: "85%",
   marginBottom: "3rem",
   ...font["3xl"],
 });
