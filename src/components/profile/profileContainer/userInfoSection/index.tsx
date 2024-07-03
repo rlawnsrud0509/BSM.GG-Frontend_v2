@@ -8,12 +8,16 @@ const UserinfoSection = ({
   return (
     <div className={S.Container}>
       <div className={S.UserDetailInfoSection}>
-        <span className={S.UserLevelText}>
-          {"" + grade + classNo + getFormattedClassNumber(studentNo) + " " + name}
-        </span>
-        <span className={S.UserRankingText}>
-          교내 랭킹 {ranking}위 (상위 {getUserPercentage(ranking, userCount)})
-        </span>
+        {classNo && (
+          <>
+            <span className={S.UserLevelText}>
+              {"" + grade + classNo + getFormattedClassNumber(studentNo) + " " + name}
+            </span>
+            <span className={S.UserRankingText}>
+              교내 랭킹 {ranking}위 (상위 {getUserPercentage(ranking, userCount)})
+            </span>
+          </>
+        )}
       </div>
       <div className={S.UserNameSection}>
         <span className={S.UserNameText}>{gameName}</span>
