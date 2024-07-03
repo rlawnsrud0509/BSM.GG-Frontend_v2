@@ -4,14 +4,17 @@ import * as S from "./index.css";
 import Image from "next/image";
 import UserinfoSection from "./userInfoSection";
 
-import { useGetUserProfileInfoQuery, useGetUserRecordDataQuery } from "@/service/record/graphql";
+import { useGetUserProfileInfoQuery } from "@/service/record/graphql";
 import { useUserParams } from "@/hooks/useUserParams";
+import { useRegetMatchDataMutation } from "@/service/record/match/mutation";
+import LoadingGif from "@/assets/gif/dotLoading";
+import CircleLoadingGif from "@/assets/gif/circleLoading";
 
 const ProfileContainer = () => {
   const userParams = useUserParams();
 
   const { data } = useGetUserProfileInfoQuery(userParams);
-  const { refetch } = useGetUserRecordDataQuery(`${userParams}`, 0);
+  const { regetMatchDataMutate, isPending } = useRegetMatchDataMutation(userParams);
 
   return (
     <section className={S.Container}>
@@ -30,8 +33,13 @@ const ProfileContainer = () => {
       <div className={S.userProfileSection}>
         <UserinfoSection {...data} />
         <div className={S.UserRecordReloadSection}>
-          <button className={S.UserRecordReloadButton} onClick={() => refetch()}>
-            전적 갱신
+          <button
+            className={S.UserRecordReloadButton}
+            onClick={() => {
+              if (!isPending) regetMatchDataMutate();
+            }}
+          >
+            {isPending ? <CircleLoadingGif /> : "전적 갱신"}
           </button>
         </div>
       </div>
