@@ -1,4 +1,4 @@
-export const getRankIcon = (rank: number) => {
+export const getRankIcon = (rank: number | string) => {
   switch (rank) {
     case 1:
       return "🥇";
