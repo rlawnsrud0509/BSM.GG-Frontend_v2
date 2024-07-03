@@ -7,15 +7,13 @@ import HeaderLink from "./headerLink";
 import { Logo } from "@/style/base/svg";
 import { ROUTE, ROUTENAME } from "@/constants/router";
 import { getItem, removeItem } from "@/utils";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const Header = () => {
-  const router = useRouter();
-  const [accessToken, setIsAccessToken] = useState("");
+  const [accessToken, setIsAccessToken] = useState(false);
 
-  useEffect(() => {
-    setIsAccessToken(String(getItem("access_token")));
+  useLayoutEffect(() => {
+    setIsAccessToken(!!getItem("access_token"));
   }, []);
 
   return (
@@ -31,18 +29,14 @@ const Header = () => {
         </div>
       </section>
       <section className={S.HeaderButtonSection}>
-        {accessToken !== "" ? (
-          accessToken === "undefined" ? (
-            <Link href={ROUTE.REGISTER_ACCOUNT}>
-              <div className={S.RegistAccountButton}>소환사명 연동하기</div>
-            </Link>
-          ) : (
-            <Link href={ROUTE.ADDITIONALINFO}>
-              <div className={S.RegistAccountButton}>연동된 소환사명 변경하기</div>
-            </Link>
-          )
+        {!accessToken ? (
+          <Link href={ROUTE.REGISTER_ACCOUNT}>
+            <div className={S.RegistAccountButton}>소환사명 연동하기</div>
+          </Link>
         ) : (
-          <></>
+          <Link href={ROUTE.ADDITIONALINFO}>
+            <div className={S.RegistAccountButton}>연동된 소환사명 변경하기</div>
+          </Link>
         )}
         {accessToken && (
           <div
@@ -51,8 +45,7 @@ const Header = () => {
               removeItem("access_token");
               removeItem("game_name");
               removeItem("tag_line");
-              router.push("/");
-              router.refresh();
+              location.reload();
             }}
           >
             로그아웃

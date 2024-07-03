@@ -2,10 +2,10 @@ import { GameRecordInfoProperties } from "@/types/components/GameRecordInfoPrope
 import { UserInfoSectionProperties } from "@/types/components/userInfoSectionProperties.type";
 import { gql, useSuspenseQuery } from "@apollo/client";
 
-export const useGetUserRecordDataQuery = (parameter: string, page: number) => {
+export const useGetUserRecordDataQuery = (gameType: string, parameter: string, page: number) => {
   const { data, refetch } = useSuspenseQuery<GameRecordInfoProperties>(gql`
     query {
-      getMatches(name: "${parameter}", page: ${page}) {
+      getMatches(name: "${parameter}", gameType: "${gameType}", page: ${page}) {
         matches{
             gameDuration,
             gameStartedAt,

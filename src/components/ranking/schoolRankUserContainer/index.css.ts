@@ -1,13 +1,26 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
 import { Column, Row } from "@/style/ui/Flex";
-import { createVar, style } from "@vanilla-extract/css";
+import { createVar, keyframes, style } from "@vanilla-extract/css";
 
 export const ContainerColor = createVar();
 export const WinRateColor = createVar();
 
+export const ContainerAnimation = createVar();
+
+export const ShowRankingAnimation = keyframes({
+  "0%": {
+    opacity: 0,
+    transform: "translateY(-15%) scaleY(0.7)",
+  },
+  "100%": {
+    opacity: 1,
+    transform: "translateY(0%) scaleY(1)",
+  },
+});
+
 export const Container = style({
-  width: "80%",
+  width: "100%",
   display: "grid",
   gridTemplateColumns: "1fr 3fr 2fr 3fr 1fr",
 
@@ -18,11 +31,13 @@ export const Container = style({
 
   borderRadius: "0.5rem",
   backgroundColor: ContainerColor,
+  opacity: 0,
 
-  transition: "0.1s ease-out",
+  animation: ContainerAnimation,
+  transition: "0.2s ease-in-out",
 
   ":hover": {
-    transform: "scale(1.01)",
+    transform: "scaleX(1.01) scaleY(1.04) !important",
   },
 });
 

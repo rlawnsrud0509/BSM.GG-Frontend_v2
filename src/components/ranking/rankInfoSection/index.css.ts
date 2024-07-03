@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css";
 
 export const Container = style(
   Column({
-    width: "100%",
+    width: "70%",
     maxWidth: "160rem",
     position: "relative",
 
@@ -16,7 +16,10 @@ export const Container = style(
 
 export const ObserverContainer = style({
   width: "100%",
-  opacity: "0",
-  marginTop: "5rem",
-  height: "1px",
+  height: "10rem",
+  position: "relative",
+
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 });

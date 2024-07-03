@@ -5,7 +5,8 @@ import ChampionInfoImg from "../championInfoImg";
 import * as S from "./index.css";
 import { UserChampionDetailInfoProperties } from "@/types/components/UserChampionDetailInfoProperties.type";
 import Image from "next/image";
-import RunespellGridBox from "../runespellGridbox";
+import RunespellGridBox from "../runespellGridBox";
+import Link from "next/link";
 
 const UserChampionDetailInfoSection = (particiPantsData: UserChampionDetailInfoProperties) => {
   return (
@@ -25,12 +26,17 @@ const UserChampionDetailInfoSection = (particiPantsData: UserChampionDetailInfoP
           ]}
           containerSize={1.5}
         />
-        <div className={S.UserDetailInfoBox}>
-          <span className={S.UsernameText}>{particiPantsData.gameName}</span>
-          <span className={S.UserRankInfoText}>
-            {particiPantsData.soloTier ? particiPantsData.soloTier : "UNRANKED"}
-          </span>
-        </div>
+        <Link
+          href={`/user/${particiPantsData.gameName}-${particiPantsData.tagLine}`}
+          target="blank_"
+        >
+          <div className={S.UserDetailInfoBox}>
+            <span className={S.UsernameText}>{particiPantsData.gameName}</span>
+            <span className={S.UserRankInfoText}>
+              {particiPantsData.soloTier ? particiPantsData.soloTier : "UNRANKED"}
+            </span>
+          </div>
+        </Link>
       </section>
       <section className={S.KDAInfoSection}>
         <KDAText

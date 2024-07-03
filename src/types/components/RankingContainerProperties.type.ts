@@ -15,4 +15,6 @@ export interface RankingContainerProperties {
     id: string;
     name: string;
   }[];
+  index: number;
+  lastIndex: number;
 }

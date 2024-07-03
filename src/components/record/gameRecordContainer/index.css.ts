@@ -1,7 +1,9 @@
 import { font } from "@/style/base/font";
 import { theme } from "@/style/base/theme/index.css";
 import { Column, Row } from "@/style/ui/Flex";
-import { style } from "@vanilla-extract/css";
+import { createVar, style } from "@vanilla-extract/css";
+
+export const ObserverDisplay = createVar();
 
 export const Container = style(
   Column({
@@ -9,7 +11,7 @@ export const Container = style(
     position: "relative",
     gap: "1.6rem",
 
-    paddingBottom: "10rem",
+    paddingBottom: "5rem",
   }),
 );
 
@@ -35,7 +37,13 @@ export const NoRecordText = style({
 });
 
 export const ObserveDiv = style({
-  opacity: 0,
   width: "100%",
-  height: "50px",
+  height: "10rem",
+  position: "relative",
+
+  display: ObserverDisplay,
+  justifyContent: "center",
+  alignItems: "center",
+
+  marginTop: "5rem",
 });

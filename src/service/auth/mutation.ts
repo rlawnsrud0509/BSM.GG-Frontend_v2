@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 
 export const useGetUserStatusMutation = (auth_code: string, openModal: () => void) => {
-  const router = useRouter();
-
   const { mutate: getUserStatusMutate, ...restMutation } = useMutation({
     mutationFn: () => postAuthCode(auth_code),
     onSuccess: (res) => {
@@ -15,8 +13,8 @@ export const useGetUserStatusMutation = (auth_code: string, openModal: () => voi
       if (res.data.data.gameName) {
         setItem("game_name", res.data.data.gameName);
         setItem("tag_line", res.data.data.tagLine);
-        router.push("/");
-        router.refresh();
+
+        location.href = "/";
       } else {
         openModal();
       }
@@ -46,9 +44,8 @@ export const useAddUserGameNameMutation = (
     },
     onError: (err: any) => {
       if (err.response.status === 404) setErrorState(true);
-      else {
-        alert("알 수 없는 문제가 발생하였습니다. 다시 시도해주세요.");
-      }
+      else if (err.response.status === 429) alert("현재 요청이 너무 많습니다 다시 시도해주세요.");
+      else alert("알 수 없는 문제가 발생하였습니다. 다시 시도해주세요.");
     },
   });
 
