@@ -20,7 +20,7 @@ export const SearchInput = style({
 
   ":focus": {
     boxShadow: `0 0 0 0.4rem ${theme.primary[400]}`,
-    transform: "scale(1.01)",
+    transform: "scaleY(1.02) scaleX(1.0075)",
   },
 
   "::placeholder": {
