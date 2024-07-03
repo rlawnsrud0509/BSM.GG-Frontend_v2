@@ -1,5 +1,5 @@
 import { GameChampionHeaderProperties } from "@/types/constants/GameChampionHeaderProperties.type";
-import { GameRecordHeaderProperties } from "@/types/constants/gameRecordHeaderProperties.type";
+import { GameRecordHeaderProperties } from "@/types/constants/GameRecordHeaderProperties.type";
 
 export const GAME_RECORD_HEADER: GameRecordHeaderProperties = {
   전체: "전체",
