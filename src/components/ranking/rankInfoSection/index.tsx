@@ -7,6 +7,7 @@ import SchoolRankUserContainer from "..//schoolRankUserContainer";
 import { useGetRankingInfoQuery } from "@/service/ranking/graphql";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useObserver } from "@/hooks/useObserver";
+import LoadingGif from "@/assets/gif/dotLoading";
 
 const RankInfoSection = () => {
   const [page, setPage] = useState(0);
@@ -17,6 +18,7 @@ const RankInfoSection = () => {
     },
   });
 
+  const [endOfRecord, setEndOfRecord] = useState(false);
   const { isIntersecting, setIsIntersecting, DOMref } = useObserver(0.3);
 
   useEffect(() => {
@@ -35,14 +37,32 @@ const RankInfoSection = () => {
         ],
       },
     });
+    if (data.getRanking.summonerResponseDto.length < 10) {
+      setEndOfRecord(true);
+    }
   }, [data]);
 
   return (
     <div className={S.Container}>
       {rankingData.getRanking.summonerResponseDto.map((e, i) => (
-        <SchoolRankUserContainer {...e} key={`RankContainer${i}`} />
+        <SchoolRankUserContainer
+          lastIndex={
+            rankingData.getRanking.summonerResponseDto[
+              rankingData.getRanking.summonerResponseDto.length - 1
+            ].ranking
+          }
+          index={i % 10}
+          {...e}
+          key={`RankContainer${i}`}
+        />
       ))}
-      <div className={S.ObserverContainer} ref={DOMref} />
+      <div className={S.ObserverContainer}>
+        {!endOfRecord && (
+          <div ref={DOMref}>
+            <LoadingGif />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
