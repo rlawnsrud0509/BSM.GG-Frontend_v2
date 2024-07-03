@@ -20,7 +20,7 @@ export const Container = style(
 
 export const HeaderTextSection = style(
   Row({
-    width: "80%",
+    width: "85%",
     position: "relative",
 
     justifyContent: "flex-start",
@@ -61,7 +61,7 @@ export const ReloadButton = style(
 );
 
 export const LolchangGridContainer = style({
-  width: "80%",
+  width: "85%",
 
   display: "grid",
   gridTemplateColumns: "1fr 1fr",

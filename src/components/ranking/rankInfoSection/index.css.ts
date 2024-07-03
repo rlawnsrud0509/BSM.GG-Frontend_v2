@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css";
 
 export const Container = style(
   Column({
-    width: "70%",
+    width: "85%",
     maxWidth: "160rem",
     position: "relative",
 
