@@ -21,7 +21,7 @@ const RegisteredSummonerContainer = () => {
         <>
           {isLogin ? (
             <Suspense fallback={<ProfilePreviewLayoutContainer />}>
-              <ProfilePreviewContainer />
+              <ProfilePreviewContainer />{" "}
             </Suspense>
           ) : (
             <ProfileLoginPreviewContainer />
