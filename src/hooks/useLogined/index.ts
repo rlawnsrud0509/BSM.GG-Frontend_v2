@@ -5,7 +5,7 @@ export const useLogined = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    if (getItem("access_token") !== null) {
+    if (!!getItem("access_token")) {
       setIsLogin(true);
     }
   }, []);
