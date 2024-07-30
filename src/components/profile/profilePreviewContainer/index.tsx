@@ -1,5 +1,3 @@
-"use client";
-
 import * as S from "./index.css";
 import Link from "next/link";
 import Image from "next/image";

@@ -11,9 +11,6 @@ export const useGetUserStatusMutation = (auth_code: string, openModal: () => voi
       setItem("access_token", res.data.data.accessToken);
 
       if (res.data.data.gameName) {
-        setItem("game_name", res.data.data.gameName);
-        setItem("tag_line", res.data.data.tagLine);
-
         location.href = "/";
       } else {
         openModal();
@@ -36,9 +33,7 @@ export const useAddUserGameNameMutation = (
 
   const { mutate: addUserGameNameMutation, ...restMutation } = useMutation({
     mutationFn: () => postGameName(game_name, tag_line),
-    onSuccess: (res) => {
-      setItem("game_name", res.data.data.gameName);
-      setItem("tag_line", res.data.data.tagLine);
+    onSuccess: () => {
       router.push("/");
       router.refresh();
     },
